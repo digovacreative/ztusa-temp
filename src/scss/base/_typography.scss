@@ -1,0 +1,946 @@
+@use '../abstracts/variables' as vars;
+
+
+/*------------------------------------*\
+    Anchor
+\*------------------------------------*/
+
+
+a {
+  color: vars.$gray;
+  text-decoration: none;
+}
+
+a:hover {
+  color: vars.$gray;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+
+
+// .gutenberg__wrap a,
+// .gutenberg__wrap abbr,
+// .gutenberg__wrap acronym,
+// .gutenberg__wrap address,
+// .gutenberg__wrap applet,
+// .gutenberg__wrap article,
+// .gutenberg__wrap aside,
+// .gutenberg__wrap audio,
+// .gutenberg__wrap big,
+// .gutenberg__wrap b,
+// .gutenberg__wrap blockquote,
+// .gutenberg__wrap body,
+// .gutenberg__wrap canvas,
+// .gutenberg__wrap caption,
+// .gutenberg__wrap center,
+// .gutenberg__wrap cite,
+// .gutenberg__wrap code,
+// .gutenberg__wrap dd,
+// .gutenberg__wrap del,
+// .gutenberg__wrap details,
+// .gutenberg__wrap dfn,
+// .gutenberg__wrap div,
+// .gutenberg__wrap dl,
+// .gutenberg__wrap dt,
+// .gutenberg__wrap em,
+// .gutenberg__wrap embed,
+// .gutenberg__wrap fieldset,
+// .gutenberg__wrap figcaption,
+// .gutenberg__wrap figure,
+// .gutenberg__wrap footer,
+// .gutenberg__wrap form,
+// .gutenberg__wrap h1,
+// .gutenberg__wrap h2,
+// .gutenberg__wrap h3,
+// .gutenberg__wrap h4,
+// .gutenberg__wrap h5,
+// .gutenberg__wrap h6,
+// .gutenberg__wrap header,
+// .gutenberg__wrap hgroup,
+// .gutenberg__wrap html,
+// .gutenberg__wrap i,
+// .gutenberg__wrap iframe,
+// .gutenberg__wrap img,
+// .gutenberg__wrap ins,
+// .gutenberg__wrap kbd,
+// .gutenberg__wrap label,
+// .gutenberg__wrap legend,
+// .gutenberg__wrap li,
+// .gutenberg__wrap main,
+// .gutenberg__wrap mark,
+// .gutenberg__wrap menu,
+// .gutenberg__wrap nav,
+// .gutenberg__wrap object,
+// .gutenberg__wrap ol,
+// .gutenberg__wrap output,
+// .gutenberg__wrap p,
+// .gutenberg__wrap pre,
+// .gutenberg__wrap q,
+// .gutenberg__wrap ruby,
+// .gutenberg__wrap s,
+// .gutenberg__wrap samp,
+// .gutenberg__wrap section,
+// .gutenberg__wrap small,
+// .gutenberg__wrap span,
+// .gutenberg__wrap strike,
+// .gutenberg__wrap strong,
+// .gutenberg__wrap sub,
+// .gutenberg__wrap summary,
+// .gutenberg__wrap sup,
+// .gutenberg__wrap table,
+// .gutenberg__wrap tbody,
+// .gutenberg__wrap td,
+// .gutenberg__wrap tfoot,
+// .gutenberg__wrap th,
+// .gutenberg__wrap thead,
+// .gutenberg__wrap time,
+// .gutenberg__wrap tr,
+// .gutenberg__wrap tt,
+// .gutenberg__wrap u,
+// .gutenberg__wrap ul,
+// .gutenberg__wrap var,
+// .gutenberg__wrap video {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 100%;
+//   font: inherit;
+//   vertical-align: baseline
+// }
+
+
+.gutenberg__wrap ol,
+.gutenberg__wrap ul {
+  list-style: none
+}
+
+.gutenberg__wrap blockquote,
+.gutenberg__wrap q {
+  quotes: none
+}
+
+.gutenberg__wrap blockquote:after,
+.gutenberg__wrap blockquote:before,
+.gutenberg__wrap q:after,
+.gutenberg__wrap q:before {
+  content: '';
+  content: none
+}
+
+
+.gutenberg__wrap table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+// .gutenberg__wrap h1,
+// .gutenberg__wrap h2,
+// .gutenberg__wrap h3,
+// .gutenberg__wrap h4,
+// .gutenberg__wrap h5,
+// .gutenberg__wrap h6 {
+//   font-family: Calibri, "Open Sans", sans-serif;
+//   color: vars.$bg-default
+// }
+
+// .gutenberg__wrap a,
+// .gutenberg__wrap li,
+// .gutenberg__wrap p {
+//   font-family: Calibri, "Open Sans", sans-serif;
+//   color: vars.$bg-default
+// }
+
+// .gutenberg__wrap h1:lang(ar),
+// .gutenberg__wrap h2:lang(ar),
+// .gutenberg__wrap h3:lang(ar),
+// .gutenberg__wrap h4:lang(ar),
+// .gutenberg__wrap h5:lang(ar),
+// .gutenberg__wrap h6:lang(ar),
+// .gutenberg__wrap li:lang(ar),
+// .gutenberg__wrap p:lang(ar),
+// .gutenberg__wrap td:lang(ar) {
+//   font-family: 'Droid Arabic Kufi', EncodeSansNarrow-Regular !important
+// }
+
+// .gutenberg__wrap h1 {
+//   text-transform: uppercase;
+//   font-family: "PT Sans", sans-serif;
+//   font-weight: bold;
+//   font-size: 65px;
+//   line-height: 65px;
+//   padding: 21px 0;
+//   position: relative;
+//   background-size: 260px
+// }
+
+// @media (max-width: 959px) {
+//   .gutenberg__wrap h1 {
+//     font-size: 40px;
+//     line-height: 40px;
+//     padding: 2px 0;
+//     background-size: 190px;
+//     padding-bottom: 26px;
+//     margin-bottom: 5px
+//   }
+// }
+
+.gutenberg__wrap h1.center {
+  background: url("assets/img/h1-bg.png") bottom center no-repeat;
+  background-size: 260px
+}
+
+// .gutenberg__wrap h2 {
+//   text-transform: uppercase;
+//   font-family: "PT Sans", sans-serif;
+//   font-weight: normal;
+//   font-size: 45px;
+//   line-height: 45px;
+//   padding: 21px 0;
+//   position: relative
+// }
+
+// @media (max-width: 959px) {
+//   .gutenberg__wrap h2 {
+//     font-size: 26px !important;
+//     line-height: 26px;
+//     padding: 2px 0
+//   }
+// }
+
+// .gutenberg__wrap h3 {
+//   font-family: "PT Sans", sans-serif;
+//   font-weight: bold;
+//   font-size: 35px;
+//   line-height: 40px;
+//   padding: 40px 0 15px 0;
+//   position: relative
+// }
+
+// .gutenberg__wrap h4 {
+//   font-weight: bold;
+//   font-size: 25px;
+//   line-height: 36px;
+//   padding: 15px 0;
+//   position: relative
+// }
+
+// .gutenberg__wrap h4 a {
+//   color: vars.$bg-default;
+//   text-decoration: none;
+//   position: relative
+// }
+
+// .gutenberg__wrap h4 a:hover:before {
+//   right: -14px;
+//   -webkit-transform: rotate(-1deg);
+//   -moz-transform: rotate(-1deg);
+//   -ms-transform: rotate(-1deg);
+//   transform: rotate(-1deg);
+//   -webkit-transition: all 0.3s ease;
+//   -moz-transition: all 0.3s ease;
+//   -ms-transition: all 0.3s ease;
+//   -o-transition: all 0.3s ease;
+//   transition: all 0.3s ease
+// }
+
+// .gutenberg__wrap h5 {
+//   font-weight: normal;
+//   font-size: 20px;
+//   line-height: 26px;
+//   padding: 12px 0;
+//   position: relative
+// }
+
+// .gutenberg__wrap h6 {
+//   font-weight: bold;
+//   font-size: 15px;
+//   line-height: 20px;
+//   padding: 17px 0;
+//   position: relative
+// }
+
+// .gutenberg__wrap a {
+//   text-decoration: underline;
+//   color: #000000
+// }
+
+// .gutenberg__wrap a:hover {
+//   text-decoration: none
+// }
+
+// .gutenberg__wrap a.button {
+//   text-decoration: none
+// }
+
+// .gutenberg__wrap p {
+//   font-size: 19px;
+//   font-family: Calibri, "Open Sans", sans-serif;
+//   line-height: 28px;
+//   padding: 15px 0 10px 0
+// }
+
+// .gutenberg__wrap p strong {
+//   font-weight: bold
+// }
+
+
+/*------------------------------------*\
+    Content Boxes  Typography
+\*------------------------------------*/
+
+
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .content_boxes>div h1 {
+    font-size: 40px;
+    line-height: 40px;
+    padding: 2px 0;
+    background-size: 190px;
+    padding-bottom: 26px;
+    margin-bottom: 5px
+  }
+}
+
+.gutenberg__wrap .content_boxes>div h1.center {
+  background: url("assets/img/h1-bg.png") bottom center no-repeat;
+  background-size: 260px
+}
+
+.gutenberg__wrap .content_boxes>div h2 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 45px;
+  padding: 21px 0;
+  position: relative
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .content_boxes>div h2 {
+    font-size: 26px !important;
+    line-height: 26px;
+    padding: 2px 0
+  }
+}
+
+.gutenberg__wrap .content_boxes>div h3 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 35px;
+  padding: 19px 0 8px 0;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes>div h4 {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 36px;
+  padding: 15px 0;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes>div h4 a {
+  color: vars.$bg-default;
+  text-decoration: none;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes>div h4 a:hover:before {
+  right: -14px;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap .content_boxes>div h5 {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px;
+  padding: 12px 0;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes>div h6 {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 17px 0;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes>div a {
+  text-decoration: underline;
+  color: vars.$black
+}
+
+.gutenberg__wrap .content_boxes>div a:hover {
+  text-decoration: none
+}
+
+.gutenberg__wrap .content_boxes>div a.button {
+  text-decoration: none
+}
+
+.gutenberg__wrap .content_boxes>div p {
+  font-size: 19px;
+  font-family: Calibri, "Open Sans", sans-serif;
+  line-height: 28px;
+  padding: 15px 0 10px 0
+}
+
+.gutenberg__wrap .content_boxes>div p strong {
+  font-weight: bold
+}
+
+.gutenberg__wrap .content_boxes>div ul {
+  padding: 20px 45px;
+  margin: 10px 0;
+  list-style: outside
+}
+
+.gutenberg__wrap .content_boxes>div ul li {
+  font-size: 19px;
+  padding: 8px;
+  line-height: 25px
+}
+
+.gutenberg__wrap .content_boxes>div ul li ul {
+  padding: 10px 20px 10px 30px;
+  margin: 12px 0px;
+  list-style-type: circle
+}
+
+.gutenberg__wrap .content_boxes>div ol {
+  padding: 20px 45px;
+  margin: 10px 0;
+  list-style: decimal
+}
+
+.gutenberg__wrap .content_boxes>div ol li {
+  font-size: 19px;
+  padding: 8px;
+  line-height: 25px
+}
+
+.gutenberg__wrap .content_boxes>div ol li ol {
+  padding: 10px 20px 10px 30px;
+  margin: 12px 0px;
+  list-style: decimal
+}
+
+.gutenberg__wrap .content_boxes>div table {
+  font-family: Calibri, "Open Sans", sans-serif
+}
+
+.gutenberg__wrap .content_boxes>div table tr {
+  border-bottom: 1px vars.$bg-grey solid
+}
+
+.gutenberg__wrap .content_boxes>div table tr td {
+  padding: 13px 5px;
+  line-height: 20px;
+  font-size: 15px
+}
+
+.gutenberg__wrap .content_boxes>div em {
+  font-style: italic
+}
+
+.gutenberg__wrap .content_boxes>div .in_news_date {
+  font-size: 14px;
+  color: white
+}
+
+.gutenberg__wrap .content_boxes>div .call_to_action_links {
+  margin: 0 auto;
+  padding: 0;
+  display: table
+}
+
+.gutenberg__wrap .content_boxes>div .call_to_action_links li {
+  display: inline-block;
+  padding: 10px
+}
+
+.gutenberg__wrap .content_boxes>div .call_to_action_links li a {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  border-radius: 100px;
+  font-weight: bold
+}
+
+.gutenberg__wrap .content_boxes>div h1 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 65px;
+  line-height: 65px;
+  padding: 21px 0;
+  position: relative;
+  background-size: 260px
+}
+
+
+/*------------------------------------*\
+    Single Post  Typography
+\*------------------------------------*/
+
+.gutenberg__wrap .single__post h1 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 65px;
+  line-height: 65px;
+  padding: 21px 0;
+  position: relative;
+  background-size: 260px
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .single__post h1 {
+      font-size:40px;
+      line-height: 40px;
+      padding: 2px 0;
+      background-size: 190px;
+      padding-bottom: 26px;
+      margin-bottom: 5px
+  }
+}
+
+.gutenberg__wrap .single__post h1.center {
+  background: url("assets/img/h1-bg.png") bottom center no-repeat;
+  background-size: 260px
+}
+
+.gutenberg__wrap .single__post h2 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 45px;
+  padding: 21px 0;
+  position: relative
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .single__post h2 {
+      font-size:26px!important;
+      line-height: 26px;
+      padding: 2px 0
+  }
+}
+
+.gutenberg__wrap .single__post h3 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 35px;
+  padding: 19px 0 8px 0;
+  position: relative
+}
+
+.gutenberg__wrap .single__post h4 {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 36px;
+  padding: 15px 0;
+  position: relative
+}
+
+.gutenberg__wrap .single__post h4 a {
+  color: vars.$bg-default;
+  text-decoration: none;
+  position: relative
+}
+
+.gutenberg__wrap .single__post h4 a:hover:before {
+  right: -14px;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap .single__post h5 {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px;
+  padding: 12px 0;
+  position: relative
+}
+
+.gutenberg__wrap .single__post h6 {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 17px 0;
+  position: relative
+}
+
+.gutenberg__wrap .single__post a {
+  text-decoration: underline;
+  color: vars.$black
+}
+
+.gutenberg__wrap .single__post a:hover {
+  text-decoration: none
+}
+
+.gutenberg__wrap .single__post a.button {
+  text-decoration: none
+}
+
+.gutenberg__wrap .single__post p {
+  font-size: 19px;
+  font-family: Calibri, "Open Sans", sans-serif;
+  line-height: 28px;
+  padding: 15px 0 10px 0
+}
+
+.gutenberg__wrap .single__post p strong {
+  font-weight: bold
+}
+
+.gutenberg__wrap .single__post ul {
+  padding: 20px 45px;
+  margin: 10px 0;
+  list-style: outside
+}
+
+.gutenberg__wrap .single__post ul li {
+  font-size: 19px;
+  padding: 8px;
+  line-height: 25px
+}
+
+.gutenberg__wrap .single__post ul li ul {
+  padding: 10px 20px 10px 30px;
+  margin: 12px 0px;
+  list-style-type: circle
+}
+
+.gutenberg__wrap .single__post ol {
+  padding: 20px 45px;
+  margin: 10px 0;
+  list-style: decimal
+}
+
+.gutenberg__wrap .single__post ol li {
+  font-size: 19px;
+  padding: 8px;
+  line-height: 25px
+}
+
+.gutenberg__wrap .single__post ol li ol {
+  padding: 10px 20px 10px 30px;
+  margin: 12px 0px;
+  list-style: decimal
+}
+
+.gutenberg__wrap .single__post table {
+  font-family: Calibri, "Open Sans", sans-serif
+}
+
+.gutenberg__wrap .single__post table tr {
+  border-bottom: 1px vars.$bg-grey solid
+}
+
+.gutenberg__wrap .single__post table tr td {
+  padding: 13px 5px;
+  line-height: 20px;
+  font-size: 15px
+}
+
+.gutenberg__wrap .single__post em {
+  font-style: italic
+}
+
+.gutenberg__wrap .single__post .in_news_date {
+  font-size: 14px;
+  color: white
+}
+
+.gutenberg__wrap .single__post p {
+  padding: 15px 0
+}
+
+.gutenberg__wrap .single__post .course__carousel .main__carousel .item_box .caption__bg {
+  background: vars.$bg-default;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  opacity: 0.6;
+  filter: alpha(opacity=60)
+}
+
+.gutenberg__wrap .single__post .course__carousel .main__carousel .item_box .caption {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 100%;
+  top: auto!important;
+  bottom: 40px
+}
+
+.gutenberg__wrap .single__post .course__carousel .main__carousel .item_box .caption .post__event_date {
+  color: vars.$white
+}
+
+.gutenberg__wrap .single__post .medium_box .sidebar .latest__articles h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: Calibri, "Open Sans", sans-serif;
+  padding: 10px 20px
+}
+
+
+.gutenberg__wrap .single__post .medium_box .content__box h1,
+.gutenberg__wrap .single__post .medium_box .content__box h2,
+.gutenberg__wrap .single__post .medium_box .content__box h3,
+.gutenberg__wrap .single__post .medium_box .content__box h4,
+.gutenberg__wrap .single__post .medium_box .content__box h5,
+.gutenberg__wrap .single__post .medium_box .content__box h6,
+.gutenberg__wrap .single__post .medium_box .content__box p,
+.gutenberg__wrap .single__post .medium_box .content__box ul {
+  margin: 0 80px 0 80px
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+
+  .gutenberg__wrap .single__post .medium_box .content__box h1,
+  .gutenberg__wrap .single__post .medium_box .content__box h2,
+  .gutenberg__wrap .single__post .medium_box .content__box h3,
+  .gutenberg__wrap .single__post .medium_box .content__box h4,
+  .gutenberg__wrap .single__post .medium_box .content__box h5,
+  .gutenberg__wrap .single__post .medium_box .content__box h6,
+  .gutenberg__wrap .single__post .medium_box .content__box p,
+  .gutenberg__wrap .single__post .medium_box .content__box ul {
+    margin: 0 40px
+  }
+}
+
+.gutenberg__wrap .single__post .medium_box .content__box .wp-block-quote p {
+  margin: 0
+}
+
+
+/*------------------------------------*\
+    Homepage Carousel Typography
+\*------------------------------------*/
+
+
+
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption {
+  position: absolute;
+  top: 190px;
+  left: 0px;
+  z-index: 4;
+  width: 50%;
+  max-width: 550px
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption h1 {
+  padding: 20px;
+  color: vars.$white;
+  font-size: 124px;
+  text-transform: uppercase;
+  line-height: 105px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: normal;
+  overflow-wrap: normal
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption h3 {
+  padding: 25px;
+  width: 100%;
+  font-family: Calibri, "Open Sans", sans-serif;
+  font-size: 27px;
+  color: vars.$white;
+  line-height: 30px;
+  font-weight: normal
+}
+
+.gutenberg__wrap .slick-slide:focus,
+.gutenberg__wrap .slick-slide a {
+  outline: none
+}
+
+.gutenberg__wrap .slick-dots>li {
+  display: inline-block
+}
+
+.gutenberg__wrap .slick-dots>li:only-child {
+  display: none
+}
+
+/*------------------------------------*\
+    Featured Fixed Heading
+\*------------------------------------*/
+
+
+.gutenberg__wrap .featured__fixed_heading {
+  border-bottom: 1px vars.$bg-grey solid
+}
+
+.gutenberg__wrap .featured__fixed_heading h2 {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 0
+}
+
+.gutenberg__wrap .featured__fixed_heading h3 {
+  padding-top: 10px;
+  padding-bottom: 30px
+}
+
+/*------------------------------------*\
+    Misc
+\*------------------------------------*/
+
+
+.gutenberg__wrap strong {
+  font-weight: bold
+}
+
+
+
+
+.gutenberg__wrap a,
+.gutenberg__wrap a:hover {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease
+}
+
+.gutenberg__wrap img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%
+}
+
+.gutenberg__wrap img.noResponsive {
+  width: auto;
+  max-width: auto
+}
+
+
+
+
+
+.gutenberg__wrap .shadowBox {
+  -webkit-box-shadow: 1px 1px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 1px 1px 35px rgba(0, 0, 0, 0.08);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1px, OffY=1px, Color='#14000000')
+}
+
+.gutenberg__wrap .wave:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  z-index: 0
+}
+
+.gutenberg__wrap .waveRound:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  z-index: 0
+}
+
+
+
+
+
+
+.gutenberg__wrap body a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease
+}
+
+.gutenberg__wrap body a:hover {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+
+.gutenberg__wrap body .slick-dots {
+  max-width: 95%
+}
+
+.gutenberg__wrap body .slick-dots li button:before {
+  font-size: 23px !important
+}
+
+.gutenberg__wrap h1,
+.gutenberg__wrap h2,
+.gutenberg__wrap h3,
+.gutenberg__wrap h4,
+.gutenberg__wrap h5,
+.gutenberg__wrap h6,
+.gutenberg__wrap li,
+.gutenberg__wrap p,
+.gutenberg__wrap span {
+  overflow-wrap: unset !important
+}
+
+ol,
+ul {
+  overflow-wrap: unset !important
+}
+
+
+/* New CSS 2023 */
+
+.gutenberg__wrap .page__banner .large_box h1 {
+  background-color: transparent;
+  line-height: 3.5rem;
+  bottom: 20px;
+}

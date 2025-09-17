@@ -1,0 +1,114 @@
+[
+    {
+      "key": "group_legacy_callout_01",
+      "title": "Legacy Callout",
+      "fields": [
+        {
+          "key": "field_legacy_content",
+          "label": "Content",
+          "name": "content",
+          "type": "wysiwyg",
+          "instructions": "Main text shown inside the gradient box. Supports headings, paragraphs and bold.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "", "class": "", "id": "" },
+          "default_value": "",
+          "tabs": "all",
+          "toolbar": "full",
+          "media_upload": 0,
+          "delay": 0
+        },
+        {
+          "key": "field_legacy_button_link",
+          "label": "Button Link",
+          "name": "button_link",
+          "type": "link",
+          "instructions": "Optional call-to-action button. Leave empty to hide the button.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "", "class": "", "id": "" },
+          "return_format": "array"
+        },
+        {
+          "key": "field_legacy_width",
+          "label": "Width",
+          "name": "width",
+          "type": "select",
+          "instructions": "Full width (100%) or Half width at md/lg (50%).",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "", "class": "", "id": "" },
+          "choices": {
+            "full": "Full (100%)",
+            "half": "Half at md/lg (50%)"
+          },
+          "default_value": "full",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 1,
+          "ajax": 0,
+          "return_format": "value",
+          "placeholder": ""
+        },
+        {
+          "key": "field_legacy_grad_start",
+          "label": "Gradient Start",
+          "name": "gradient_start",
+          "type": "color_picker",
+          "instructions": "Left/top colour of background gradient.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "33", "class": "", "id": "" },
+          "default_value": "#0f8a8b",
+          "enable_opacity": 0
+        },
+        {
+          "key": "field_legacy_grad_end",
+          "label": "Gradient End",
+          "name": "gradient_end",
+          "type": "color_picker",
+          "instructions": "Right/bottom colour of background gradient.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "33", "class": "", "id": "" },
+          "default_value": "#1fb0a5",
+          "enable_opacity": 0
+        },
+        {
+          "key": "field_legacy_grad_angle",
+          "label": "Gradient Angle (deg)",
+          "name": "gradient_angle",
+          "type": "number",
+          "instructions": "0–360 degrees. e.g. 135 = top-left → bottom-right.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": { "width": "33", "class": "", "id": "" },
+          "default_value": 135,
+          "min": 0,
+          "max": 360,
+          "step": 1,
+          "placeholder": ""
+        }
+      ],
+      "location": [
+        [
+          {
+            "param": "block",
+            "operator": "==",
+            "value": "acf/legacy-callout"
+          }
+        ]
+      ],
+      "menu_order": 0,
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "hide_on_screen": "",
+      "active": true,
+      "description": "",
+      "show_in_rest": 0,
+      "modified": 1737158400
+    }
+  ]
+  

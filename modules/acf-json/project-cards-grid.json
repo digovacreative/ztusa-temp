@@ -1,0 +1,98 @@
+[
+    {
+      "key": "group_cards_grid_01",
+      "title": "Project Cards Grid",
+      "fields": [
+        { "key": "field_cg_section_title", "label": "Section Title", "name": "section_title", "type": "text" },
+        { "key": "field_cg_default_button", "label": "Default Button Label", "name": "default_button_label", "type": "text", "default_value": "Select Package" },
+        {
+          "key": "field_cg_cards",
+          "label": "Cards",
+          "name": "cards",
+          "type": "repeater",
+          "button_label": "Add Card",
+          "min": 1,
+          "layout": "row",
+          "sub_fields": [
+            {
+              "key": "field_cg_type",
+              "label": "Card Type",
+              "name": "type",
+              "type": "button_group",
+              "choices": { "product": "Woo Product", "link": "Manual Link" },
+              "default_value": "product",
+              "return_format": "value",
+              "layout": "horizontal"
+            },
+            {
+              "key": "field_cg_product",
+              "label": "Product",
+              "name": "product",
+              "type": "post_object",
+              "post_type": ["product"],
+              "return_format": "id",
+              "ui": 1,
+              "conditional_logic": [[{ "field": "field_cg_type", "operator": "==", "value": "product" }]]
+            },
+            {
+              "key": "field_cg_title_override",
+              "label": "Title (override)",
+              "name": "title_override",
+              "type": "text",
+              "instructions": "Optional – overrides product title",
+              "conditional_logic": [[{ "field": "field_cg_type", "operator": "==", "value": "product" }]]
+            },
+            {
+              "key": "field_cg_link",
+              "label": "Link",
+              "name": "link",
+              "type": "link",
+              "return_format": "array",
+              "conditional_logic": [[{ "field": "field_cg_type", "operator": "==", "value": "link" }]]
+            },
+            {
+              "key": "field_cg_title",
+              "label": "Manual Title",
+              "name": "title",
+              "type": "text",
+              "conditional_logic": [[{ "field": "field_cg_type", "operator": "==", "value": "link" }]]
+            },
+            {
+              "key": "field_cg_image",
+              "label": "Card Image",
+              "name": "image",
+              "type": "image",
+              "return_format": "id",
+              "preview_size": "medium",
+              "instructions": "Optional – if empty, product thumbnail will be used for product cards."
+            },
+            {
+              "key": "field_cg_icon",
+              "label": "Icon (chip)",
+              "name": "icon",
+              "type": "image",
+              "return_format": "id",
+              "preview_size": "thumbnail",
+              "instructions": "Small icon displayed in a circle on the card."
+            },
+            {
+              "key": "field_cg_button_label",
+              "label": "Button Label",
+              "name": "button_label",
+              "type": "text",
+              "instructions": "Optional – overrides default label for this card."
+            }
+          ]
+        }
+      ],
+      "location": [[{ "param": "block", "operator": "==", "value": "acf/project-cards-grid" }]],
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "active": true,
+      "show_in_rest": 0,
+      "modified": 1737179999
+    }
+  ]
+  

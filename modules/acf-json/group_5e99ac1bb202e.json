@@ -3,9 +3,31 @@
     "title": "FAQ Accordion Content",
     "fields": [
         {
+            "key": "field_68cb1fe540b7a",
+            "label": "Block Heading",
+            "name": "block_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5e99ac1bc7234",
             "label": "Content Size",
             "name": "content_size",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -22,18 +44,21 @@
                 "medium_box": "Medium Container",
                 "small_box": "Small Container"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5e99ac1bc72a4",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -43,12 +68,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5e99ac1bc72f3",
             "label": "Content Colour",
             "name": "content_colour",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -62,18 +90,21 @@
                 "black": "Black",
                 "white": "White"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_5e99ac42a6949",
             "label": "FAQ Items",
             "name": "faq_items",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -93,6 +124,7 @@
                     "key": "field_5e99ac49a694a",
                     "label": "Question",
                     "name": "question",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -106,12 +138,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5e99ac42a6949"
                 },
                 {
                     "key": "field_5e99ac4fa694b",
                     "label": "Answer",
                     "name": "answer",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -125,9 +159,11 @@
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_5e99ac42a6949"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -145,7 +181,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1587129810
+    "show_in_rest": 0,
+    "modified": 1758142448
 }

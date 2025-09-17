@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as vars;
+
+
+/*------------------------------------*\
+    Responsive
+\*------------------------------------*/
+
+@media only screen and (min-width:320px) {}
+
+@media only screen and (min-width:480px) {}
+
+@media only screen and (min-width:768px) {}
+
+@media only screen and (min-width:1024px) {}
+
+@media only screen and (min-width:1140px) {}
+
+@media only screen and (min-width:1280px) {}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5),
+only screen and (min-resolution:144dpi) {}
+
+
+
+
+.gutenberg__wrap .desktopVisible {
+    display: block !important
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    .gutenberg__wrap .desktopVisible {
+      display: none !important
+    }
+  }
+  
+  .gutenberg__wrap .mobileVisible {
+    display: none !important
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    .gutenberg__wrap .mobileVisible {
+      display: block !important
+    }
+  }
+  
+  .gutenberg__wrap .phoneVisible {
+    display: none !important
+  }
+  
+  @media (max-width: 767px) {
+    .gutenberg__wrap .phoneVisible {
+      display: block !important
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .gutenberg__wrap .mobileCenter {
+      text-align: center
+    }
+  }
+  

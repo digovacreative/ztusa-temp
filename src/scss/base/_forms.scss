@@ -1,0 +1,57 @@
+@use '../abstracts/variables' as vars;
+
+
+/*------------------------------------*\
+    Input
+\*------------------------------------*/
+
+
+input:focus {
+	outline: 0;
+	border: 1px solid vars.$cyan;
+}
+
+
+/*------------------------------------*\
+    Gravity
+\*------------------------------------*/
+
+
+/* Gravity Forms Calendar CSS */
+
+.gform_wrapper {
+	text-align: left !important;
+	font-family: Calibri, "Open Sans", sans-serif !important;
+	line-height: normal !important;
+}
+
+#gform_submit_button_6,
+#gform_submit_button_7 {
+	background-color: vars.$cyan;
+	color: white !important;
+	text-transform: capitalize;
+	font-weight: normal;
+	border-color: vars.$cyan;
+	border-radius: 50px;
+	box-shadow: 0 !important;
+	border: 0;
+	min-width: 250px;
+}
+
+body img.gform_ajax_spinner {
+	max-width: 50px;
+	margin: 0 auto;
+}
+
+.gform_wrapper.gravity-theme .gform_validation_errors>h2 .gform-icon {
+	position: relative;
+}
+
+.gform_wrapper.gravity-theme .gform_validation_errors>h2 {
+	font-size: 13.2px !important;
+}
+
+
+.gutenberg__wrap input::-ms-clear {
+	display: none
+}

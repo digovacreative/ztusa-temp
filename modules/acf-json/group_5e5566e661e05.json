@@ -6,6 +6,7 @@
             "key": "field_5e5566ea6f3f8",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -15,12 +16,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5e55670d6f3fa",
             "label": "Checkout Page",
             "name": "checkout_page",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -40,6 +44,7 @@
             "key": "field_5e556c9461e82",
             "label": "Donate Page",
             "name": "donate_page",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -59,6 +64,7 @@
             "key": "field_5e7eb4761dbea",
             "label": "Account Page",
             "name": "account_page",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -78,6 +84,7 @@
             "key": "field_5e83311f0644e",
             "label": "Quick Donation Default Visible",
             "name": "quick_donation_visibility",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -97,6 +104,7 @@
             "key": "field_5e84b390bd88e",
             "label": "Hide Small Banner",
             "name": "hide_small_banner",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -116,6 +124,7 @@
             "key": "field_5e85caf7fe7a0",
             "label": "No Banner",
             "name": "no_banner",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -135,6 +144,7 @@
             "key": "field_5e873833a0641",
             "label": "Hide Quick Donation Completely",
             "name": "hide_quick_donation_completely",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -154,6 +164,7 @@
             "key": "field_5e96210ae36ae",
             "label": "Navigation Text",
             "name": "navigation_text",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -167,13 +178,36 @@
                 "white": "White",
                 "black": "Black"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_68cb33e64797c",
+            "label": "Enable Gutenberg Wrap",
+            "name": "enable_gutenberg_wrap",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable",
+            "default_value": 1,
+            "allow_in_bindings": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -191,7 +225,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1586897180
+    "show_in_rest": 0,
+    "modified": 1758147686
 }

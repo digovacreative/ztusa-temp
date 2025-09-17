@@ -1,0 +1,3 @@
+# ignore compiled/dist files
+src/js/*-dist.js
+src/js/**/*.min.js

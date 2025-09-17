@@ -1,9 +1,12 @@
-<?php get_header(); ?>
-<div class="gutenberg__wrap">
+<?php
+
+$enable_gutenberg_wrap = get_field('enable_gutenberg_wrap');
+get_header(); ?>
+<div class="<?php if($enable_gutenberg_wrap): echo 'gutenberg__wrap'; endif;?>">
 	<div class="continue_shopping_popup" id="continue_shopping_popup"></div>
 	</div>
 	<?php //include_once('modules/flexible-content/flexible-fields.php'); ?>
-	<div class="content__wrapper gutenberg__wrap">
+	<div class="content__wrapper <?php if($enable_gutenberg_wrap): echo 'gutenberg__wrap';  endif;?>">
 	<?php while(have_posts()) : the_post(); ?>
 		<?php the_content(); ?>
 		<?php 

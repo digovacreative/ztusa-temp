@@ -1,5 +1,7 @@
 <?php
 
+
+
     add_action('wp_head','zahratrust_custom_css');
     
     /**

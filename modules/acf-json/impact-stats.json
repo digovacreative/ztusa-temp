@@ -1,0 +1,46 @@
+[
+    {
+      "key": "group_impact_stats_01",
+      "title": "Impact Stats",
+      "fields": [
+        { "key": "field_is_headline", "label": "Headline", "name": "headline", "type": "text", "required": 0 },
+        { "key": "field_is_lede_top", "label": "Intro (top)", "name": "lede_top", "type": "wysiwyg", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+        { "key": "field_is_lede_bottom", "label": "Intro (bottom)", "name": "lede_bottom", "type": "wysiwyg", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+  
+        { "key": "field_is_cols", "label": "Columns on desktop", "name": "columns_desktop", "type": "select", "choices": {"2":"2","3":"3","4":"4"}, "default_value": "3", "ui": 1 },
+  
+        {
+          "key": "field_is_stats",
+          "label": "Stats",
+          "name": "stats",
+          "type": "repeater",
+          "button_label": "Add Stat",
+          "layout": "row",
+          "min": 1,
+          "sub_fields": [
+            { "key": "field_is_prefix", "label": "Prefix", "name": "prefix", "type": "text", "wrapper": {"width":"20"} },
+            { "key": "field_is_number", "label": "Number", "name": "number", "type": "number", "wrapper": {"width":"30"}, "default_value": 0, "min": 0, "step": 1 },
+            { "key": "field_is_suffix", "label": "Suffix", "name": "suffix", "type": "text", "wrapper": {"width":"20"}, "default_value": "+" },
+            { "key": "field_is_sep",    "label": "Thousands separator", "name": "thousands_sep", "type": "true_false", "ui": 1, "wrapper": {"width":"30"}, "default_value": 1 },
+            { "key": "field_is_l1", "label": "Label line 1", "name": "label_line_1", "type": "text" },
+            { "key": "field_is_l2", "label": "Label line 2 (small)", "name": "label_line_2", "type": "text" }
+          ]
+        },
+  
+        { "key": "field_is_anim_dur", "label": "Count-up duration (ms)", "name": "anim_duration", "type": "number", "default_value": 1200, "min": 200, "max": 8000, "step": 100 },
+  
+        { "key": "field_is_grad_start", "label": "Gradient Start", "name": "gradient_start", "type": "color_picker", "default_value": "#0f8a8b" },
+        { "key": "field_is_grad_end",   "label": "Gradient End",   "name": "gradient_end",   "type": "color_picker", "default_value": "#1fb0a5" },
+        { "key": "field_is_grad_angle", "label": "Gradient Angle (deg)", "name": "gradient_angle", "type": "number", "default_value": 90, "min": 0, "max": 360, "step": 1 }
+      ],
+      "location": [[{ "param": "block", "operator": "==", "value": "acf/impact-stats" }]],
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "active": true,
+      "show_in_rest": 0,
+      "modified": 1737188888
+    }
+  ]
+  

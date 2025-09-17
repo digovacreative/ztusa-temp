@@ -50,6 +50,83 @@ function my_acf_init() {
             )
         );
 
+        acf_register_block_type(array(
+            'name'            => 'project-cards-grid',
+            'title'           => __('Project Cards Grid'),
+            'description'     => __('Cards sourced from WooCommerce products or manual links, each with image and custom icon.'),
+            'render_callback'	=> 'my_acf_block_render_callback',
+            'category'        => 'widgets',
+            'icon'            => 'grid-view',
+            'mode'            => 'preview',
+            'keywords'        => array('woocommerce','cards','grid','packages','donation'),
+          ));
+          
+
+          acf_register_block_type(array(
+            'name'            => 'two-up-hero',
+            'title'           => __('Two-Up Hero'),
+            'description'     => __('2-in-1 hero: single circular/square image or 4-image collage, with two-colour heading and optional button.'),
+            'render_callback'	=> 'my_acf_block_render_callback',
+            'category'        => 'layout',
+            'icon'            => 'align-wide',
+            'mode'            => 'preview',
+            'keywords'        => array('hero','callout','donation','legacy','collage')
+          ));
+          
+          acf_register_block_type(array(
+            'name'            => 'impact-stats',
+            'title'           => __('Impact Stats'),
+            'description'     => __('Gradient headline with animated statistics grid.'),
+            'render_callback'	=> 'my_acf_block_render_callback',
+            'category'        => 'layout',
+            'icon'            => 'chart-bar',
+            'mode'            => 'preview',
+            'keywords'        => array('stats','numbers','impact','donation')
+          ));
+          
+
+
+        acf_register_block_type(
+            array(
+                'name'				=> 'legacy-callout',
+                'title'				=> __('Legacy Callout'),
+                'description'       => __('Gradient callout with optional button'),
+                'render_callback'	=> 'my_acf_block_render_callback',
+                'category'			=> 'formatting',
+                'mode'				=> 'edit',
+                'icon'				=> 'megaphone',
+                'keywords'          => ['callout','cta','donation','legacy'],
+                )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'project-pills',
+                'title'           => __('Project Product Pills'),
+                'description'     => __('Left title with selectable WooCommerce product pills (buttons).'),
+                'render_callback' => 'my_acf_block_render_callback',
+                'category'        => 'widgets',
+                'mode'            => 'edit',
+                'icon'            => 'tag',
+                'keywords'        => array('woocommerce','products','pills','buttons','projects'),
+            )
+        );
+        
+        acf_register_block_type([
+            'name'            => 'legacy-callout',
+            'title'           => __('Legacy Callout', 'the-zahra-trust'),
+            'description'     => __('Gradient callout with optional button', 'the-zahra-trust'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category'        => 'formatting',
+            'mode'            => 'edit',
+            'icon'            => 'megaphone',
+            'keywords'        => ['callout','cta','donation','legacy'],
+            'supports'        => [
+                'align' => ['wide','full'],
+                'mode'  => false,        // hides the mode switcher UI; keep if you like
+            ],
+        ]);
+
         acf_register_block_type(
             array(
                 'name'				=> 'stats-carousel',

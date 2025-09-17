@@ -1,0 +1,559 @@
+@use '../abstracts/variables' as vars;
+
+
+/*------------------------------------*\
+    Container
+\*------------------------------------*/
+
+/// Very specific css needs to be more generic so not to break
+.kadence-column3112_6dd481-51 {
+  width: 800px !important;
+  max-width: 95% !important;
+  word-break: break-word;
+}
+
+#main-header {
+  .site-header-main-section-right.site-header-section.site-header-section-right {
+    >div:nth-child(2) {
+      >div {
+        >div {
+          a.donate.red.donate_button {
+            font-weight: 900;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.gutenberg__wrap .container {
+  width: 100%
+}
+
+.gutenberg__wrap .full_box {
+  width: 100%;
+  margin: 0 auto
+}
+
+.gutenberg__wrap .max__width__container {
+  margin: 0 auto;
+  max-width: 1500px;
+  width: 100%
+}
+
+.gutenberg__wrap .max__width__container.flexEnabled {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .max__width__container.flexEnabled {
+    display: block
+  }
+}
+
+.gutenberg__wrap .larger_box {
+  width: 1700px;
+  margin: 0 auto;
+  padding: 0
+}
+
+.gutenberg__wrap .larger_box:after,
+.gutenberg__wrap .larger_box:before {
+  content: "";
+  display: table
+}
+
+.gutenberg__wrap .larger_box:after {
+  clear: both
+}
+
+@media (min-width: 1499px) and (max-width:1699px) {
+  .gutenberg__wrap .larger_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 1200px) and (max-width:1499px) {
+  .gutenberg__wrap .larger_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 1120px) and (max-width:1199px) {
+  .gutenberg__wrap .larger_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 960px) and (max-width:1119px) {
+  .gutenberg__wrap .larger_box {
+    width: 100%
+  }
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .larger_box {
+    width: 100%;
+    padding: 0
+  }
+}
+
+.gutenberg__wrap .large_box {
+  width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+.gutenberg__wrap .large_box:after,
+.gutenberg__wrap .large_box:before {
+  content: "";
+  display: table
+}
+
+.gutenberg__wrap .large_box:after {
+  clear: both
+}
+
+@media (min-width: 1200px) and (max-width:1499px) {
+  .gutenberg__wrap .large_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 1120px) and (max-width:1199px) {
+  .gutenberg__wrap .large_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 960px) and (max-width:1119px) {
+  .gutenberg__wrap .large_box {
+    width: 100%
+  }
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .large_box {
+    width: 100%;
+    padding: 0
+  }
+}
+
+.gutenberg__wrap .medium_box {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+.gutenberg__wrap .medium_box:after,
+.gutenberg__wrap .medium_box:before {
+  content: "";
+  display: table
+}
+
+.gutenberg__wrap .medium_box:after {
+  clear: both
+}
+
+@media (min-width: 1120px) and (max-width:1199px) {
+  .gutenberg__wrap .medium_box {
+    width: 100%
+  }
+}
+
+@media (min-width: 960px) and (max-width:1119px) {
+  .gutenberg__wrap .medium_box {
+    width: 100%;
+    padding: 0 20px
+  }
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .medium_box {
+    width: 100%;
+    padding: 0 20px
+  }
+}
+
+@media (max-width: 767px) {
+  .gutenberg__wrap .medium_box {
+    width: 100%;
+    padding: 0
+  }
+}
+
+.gutenberg__wrap .small_box {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+  .gutenberg__wrap .small_box {
+    width: 100%;
+    padding: 0 20px
+  }
+}
+
+
+
+    
+.gutenberg__wrap .container {
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease
+}
+
+@media (max-width: 767px) {
+  .gutenberg__wrap .container {
+      width:600px
+  }
+}
+
+@media (max-width: 767px) {
+  .gutenberg__wrap .container {
+      overflow-y:scroll
+  }
+}
+
+/*------------------------------------*\
+    Columns / Grids
+\*------------------------------------*/
+
+
+  
+  
+.gutenberg__wrap .col_1_1 {
+  width: 100%
+}
+
+.gutenberg__wrap .col_1_2 {
+  width: 50%
+}
+
+.gutenberg__wrap .col_1_25 {
+  width: 60%
+}
+
+.gutenberg__wrap .col_1_15 {
+  width: 40%
+}
+
+.gutenberg__wrap .col_1_3 {
+  width: 33.33333%
+}
+
+.gutenberg__wrap .col_2_3 {
+  width: 66.66667%
+}
+
+.gutenberg__wrap .col_1_4 {
+  width: 25%
+}
+
+.gutenberg__wrap .col_2_4 {
+  width: 50%
+}
+
+.gutenberg__wrap .col_3_4 {
+  width: 75%
+}
+
+.gutenberg__wrap .col_1_5 {
+  width: 20%
+}
+
+.gutenberg__wrap .col_2_5 {
+  width: 40%
+}
+
+.gutenberg__wrap .col_3_5 {
+  width: 60%
+}
+
+.gutenberg__wrap .col_4_5 {
+  width: 80%
+}
+
+.gutenberg__wrap .col_1_6 {
+  width: 16.66667%
+}
+
+.gutenberg__wrap .col_2_6 {
+  width: 33.33333%
+}
+
+.gutenberg__wrap .col_3_6 {
+  width: 50%
+}
+
+.gutenberg__wrap .col_4_6 {
+  width: 66.66667%
+}
+
+.gutenberg__wrap .col_5_6 {
+  width: 83.33333%
+}
+
+.gutenberg__wrap .col_1_7 {
+  width: 14.28571%
+}
+
+.gutenberg__wrap .col_2_7 {
+  width: 28.57143%
+}
+
+.gutenberg__wrap .col_3_7 {
+  width: 42.85714%
+}
+
+.gutenberg__wrap .col_4_7 {
+  width: 57.14286%
+}
+
+.gutenberg__wrap .col_5_7 {
+  width: 71.42857%
+}
+
+.gutenberg__wrap .col_6_7 {
+  width: 85.71429%
+}
+
+@media (max-width: 767px) {
+  .gutenberg__wrap .col_1_2,.gutenberg__wrap .col_1_3,.gutenberg__wrap .col_1_4,.gutenberg__wrap .col_1_5,.gutenberg__wrap .col_1_6,.gutenberg__wrap .col_1_15,.gutenberg__wrap .col_1_25,.gutenberg__wrap .col_2_3,.gutenberg__wrap .col_2_4,.gutenberg__wrap .col_2_5,.gutenberg__wrap .col_2_6,.gutenberg__wrap .col_3_4,.gutenberg__wrap .col_3_5,.gutenberg__wrap .col_3_6,.gutenberg__wrap .col_4_5,.gutenberg__wrap .col_4_6,.gutenberg__wrap .col_5_6 {
+      width:100%
+  }
+}
+
+/*------------------------------------*\
+    Loaders 
+\*------------------------------------*/
+
+  
+.gutenberg__wrap body.preloader-site {
+  overflow: hidden
+}
+
+.gutenberg__wrap .preloader-site .loaderBox {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap .preloader-site .loaderBox:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  z-index: 20;
+  background: vars.$white;
+  opacity: 1;
+  filter: alpha(opacity=100)
+}
+
+.gutenberg__wrap .preloader-site .loaderBox img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 22;
+  width: 40px;
+  height: 40px;
+  top: 40%
+}
+
+.gutenberg__wrap .preloader-site .loaderBox {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  visibility: visible;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap #loading-bar {
+  background-color: vars.$color-primary;
+  -webkit-box-shadow: 0px 0px 10px #00cda9;
+  box-shadow: 0px 0px 10px #00cda9;
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=0px, Color='#FF00CDA9');
+  height: 4px;
+  width: 0;
+  position: fixed;
+  z-index: 666000666;
+  -webkit-transition: width 500ms ease-out, height 500ms ease-out;
+  -moz-transition: width 500ms ease-out, height 500ms ease-out;
+  -o-transition: width 500ms ease-out, height 500ms ease-out;
+  transition: width 500ms ease-out, height 500ms ease-out
+}
+
+.gutenberg__wrap #loading-bar.no-transition {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none
+}
+
+.gutenberg__wrap #loading-bar.bottom,.gutenberg__wrap #loading-bar.left,.gutenberg__wrap #loading-bar.top {
+  left: 0
+}
+
+.gutenberg__wrap #loading-bar.left,.gutenberg__wrap #loading-bar.right,.gutenberg__wrap #loading-bar.top {
+  top: 0
+}
+
+.gutenberg__wrap #loading-bar.left,.gutenberg__wrap #loading-bar.right {
+  width: 5px;
+  height: 0
+}
+
+.gutenberg__wrap #loading-bar.bottom {
+  bottom: 0
+}
+
+.gutenberg__wrap #loading-bar.right {
+  right: 0
+}
+
+/*------------------------------------*\
+    YouTube 
+\*------------------------------------*/
+
+.gutenberg__wrap .youtube__video_thumb {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3)
+}
+
+/*------------------------------------*\
+    Content Boxes Layout
+\*------------------------------------*/
+
+.gutenberg__wrap .content_boxes {
+  overflow: hidden;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+  background-size: cover!important;
+  position: relative
+}
+
+.gutenberg__wrap .content_boxes .content__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.8;
+  filter: alpha(opacity=80)
+}
+
+.gutenberg__wrap .content_boxes>div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: "wrap";
+  -moz-flex-wrap: "wrap";
+  -ms-flex-wrap: "wrap";
+  flex-wrap: "wrap";
+  position: relative;
+  z-index: 4
+}
+
+.gutenberg__wrap .content_boxes>div .column_box {
+  float: left;
+  padding: 30px;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+  background-size: cover!important;
+  background-position: center center!important
+}
+
+.gutenberg__wrap .content_boxes>div .column_box.light em,.gutenberg__wrap .content_boxes>div .column_box.light h1,.gutenberg__wrap .content_boxes>div .column_box.light h2,.gutenberg__wrap .content_boxes>div .column_box.light h3,.gutenberg__wrap .content_boxes>div .column_box.light h4,.gutenberg__wrap .content_boxes>div .column_box.light h5,.gutenberg__wrap .content_boxes>div .column_box.light h6,.gutenberg__wrap .content_boxes>div .column_box.light i,.gutenberg__wrap .content_boxes>div .column_box.light li,.gutenberg__wrap .content_boxes>div .column_box.light p,.gutenberg__wrap .content_boxes>div .column_box.light span,.gutenberg__wrap .content_boxes>div .column_box.light strong,.gutenberg__wrap .content_boxes>div .column_box.light ul {
+  color: vars.$white
+}
+
+.gutenberg__wrap .content_boxes>div .column_box.light .button.outlined {
+  border-color: vars.$white;
+  color: vars.$white
+}
+
+.gutenberg__wrap .content_boxes>div .column_box.dark em,.gutenberg__wrap .content_boxes>div .column_box.dark h1,.gutenberg__wrap .content_boxes>div .column_box.dark h2,.gutenberg__wrap .content_boxes>div .column_box.dark h3,.gutenberg__wrap .content_boxes>div .column_box.dark h4,.gutenberg__wrap .content_boxes>div .column_box.dark h5,.gutenberg__wrap .content_boxes>div .column_box.dark h6,.gutenberg__wrap .content_boxes>div .column_box.dark i,.gutenberg__wrap .content_boxes>div .column_box.dark li,.gutenberg__wrap .content_boxes>div .column_box.dark p,.gutenberg__wrap .content_boxes>div .column_box.dark span,.gutenberg__wrap .content_boxes>div .column_box.dark strong,.gutenberg__wrap .content_boxes>div .column_box.dark ul {
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .content_boxes>div .column_box.dark .button.outlined {
+  border-color: vars.$bg-default;
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .content_boxes>div .column_box.col_1_1 {
+  float: none;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+
+
+  
+@media (max-width: 767px) {
+  .gutenberg__wrap .content_boxes>div {
+      display:block
+  }
+}
+
+
+  
+.gutenberg__wrap .content_boxes.no_padding>div .column_box {
+  padding: 0
+}
+
+.gutenberg__wrap .content_boxes.no_padding>div .column_box.no_padding {
+  padding: 0
+}
+
+.gutenberg__wrap .content_boxes.default_padding>div .column_box {
+  padding: 30px
+}
+
+.gutenberg__wrap .content_boxes.default_padding>div .column_box.no_padding {
+  padding: 0
+}
+
+.gutenberg__wrap .content_boxes.extra_padding>div .column_box {
+  padding: 100px 60px
+}
+
+.gutenberg__wrap .content_boxes.extra_padding>div .column_box.no_padding {
+  padding: 0
+}
+
+.gutenberg__wrap .content_boxes.horizontal_padding>div .column_box {
+  padding: 30px 60px
+}
+
+.gutenberg__wrap .content_boxes.horizontal_padding>div .column_box.no_padding {
+  padding: 0
+}

@@ -1,0 +1,1099 @@
+@use '../abstracts/variables' as vars;
+
+
+/*------------------------------------*\
+    Donate Buttons
+\*------------------------------------*/
+
+
+.quick__donate_button.active {
+	display: none !important;
+}
+
+/*------------------------------------*\
+    Homepage Carousel Buttons
+\*------------------------------------*/
+
+
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button {
+	position: relative;
+	height: auto;
+	background: none;
+	padding: 15px 70px 15px 15px;
+	text-transform: uppercase;
+	color: vars.$white;
+	font-size: 18px;
+	border: 2px vars.$white solid;
+	margin-top: 20px;
+	margin-left: 28px
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button:before {
+	z-index: -1;
+	content: "";
+	width: 0px;
+	height: 100%;
+	background: vars.$white;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button svg {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	right: 17px;
+	top: 16px;
+	fill: vars.$white
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button:hover {
+	color: vars.$black
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button:hover:before {
+	width: 100%;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease
+}
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button:hover svg {
+	right: 13px;
+	fill: vars.$black;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease
+}
+
+
+.gutenberg__wrap .homepage__slider_carousel .main__carousel .slick-dots li {
+	margin: 0 !important
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel .main__carousel .slick-dots li button:before {
+	font-size: 35px !important;
+	color: vars.$white!important
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel .main__carousel .slick-dots li.slick-active button:before {
+	color: vars.$white!important
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .slick-dots {
+	  bottom: 90px !important
+	}
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption h1,
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption h3 {
+	color: vars.$black
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption .button {
+	color: vars.$black;
+	border: 2px vars.$black solid
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption .button:before {
+	background: vars.$black
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption .button svg {
+	fill: vars.$black
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption .button:hover {
+	color: vars.$white
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.black_text .main__carousel .item_box .caption .button:hover svg {
+	fill: vars.$white
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption h1 {
+	color: vars.$color-primary
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption h3 {
+	color: vars.$black
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption .button {
+	color: vars.$white;
+	background: vars.$color-primary;
+	border: 2px vars.$color-primary solid
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption .button:before {
+	background: vars.$white
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption .button svg {
+	fill: vars.$white
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption .button:hover {
+	color: vars.$color-primary;
+	border: 2px vars.$white solid
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.till_text .main__carousel .item_box .caption .button:hover svg {
+	fill: vars.$color-primary
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium {
+	height: 68vh;
+	min-height: 750px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium .main__carousel {
+	height: 68vh;
+	min-height: 750px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box {
+	height: 68vh;
+	min-height: 750px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box .caption {
+	top: 150px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box .caption h1 {
+	padding: 20px;
+	color: vars.$white;
+	font-size: 100px;
+	line-height: 100px;
+	font-family: "PT Sans", sans-serif;
+	font-weight: normal
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box .caption__bg {
+	height: 68vh;
+	min-height: 750px
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .homepage__slider_carousel.medium {
+	  height: 220px;
+	  min-height: 220px;
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.medium .main__carousel {
+	  height: 220px;
+	  min-height: 220px;
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box {
+	  height: 220px;
+	  min-height: 220px;
+	  background-size: contain !important;
+	}
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small {
+	height: 60vh;
+	min-height: 550px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small .main__carousel {
+	height: 60vh;
+	min-height: 550px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box {
+	height: 60vh;
+	min-height: 550px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption {
+	top: 200px
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption h1 {
+	padding: 20px;
+	color: vars.$white;
+	font-size: 80px;
+	line-height: 80px;
+	font-family: "PT Sans", sans-serif;
+	font-weight: normal
+  }
+  
+  .gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption__bg {
+	height: 60vh;
+	min-height: 550px
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .homepage__slider_carousel.small {
+	  height: 310px;
+	  background: vars.$white;
+	  min-height: 310px
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel {
+	  height: 310px;
+	  min-height: 310px;
+	  position: relative
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box {
+	  height: 250px;
+	  min-height: 250px;
+	  margin-top: 70px
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption__bg {
+	  height: 250px;
+	  min-height: 250px;
+	  display: none
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption {
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  max-width: 100%
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption h1 {
+	  font-size: 50px;
+	  line-height: 50px;
+	  padding: 30px 10px 10px 20px;
+	  width: 60%;
+	  position: absolute;
+	  bottom: 30px
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption h3 {
+	  font-size: 20px;
+	  line-height: 25px;
+	  padding: 0 10px 0 20px;
+	  width: 60%;
+	  display: none
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption .button {
+	  padding: 15px 70px 15px 30px;
+	  position: absolute;
+	  top: -70px;
+	  text-align: left;
+	  height: 70px;
+	  line-height: 40px;
+	  margin: 0;
+	  width: calc(100% - 20px);
+	  left: 0;
+	  right: 0;
+	  margin: 0 auto;
+	  background: vars.$color-primary;
+	  border: none
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box .caption .button svg {
+	  top: 25px
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel.small .main__carousel .item_box.no_button {
+	  height: 310px;
+	  min-height: 310px
+	}
+  }
+  
+
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .homepage__slider_carousel {
+	  height: 250px;
+	  background: vars.$white;
+	  min-height: 250px;
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel {
+	  height: 250px;
+	  min-height: 250px;
+	  position: relative
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box {
+	  height: 250px;
+	  min-height: 250px;
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption__bg {
+	  height: 250px;
+	  min-height: 250px;
+	  display: none
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption {
+	  top: 0 !important;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  max-width: 100%
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption h1 {
+	  font-size: 30px !important;
+	  line-height: 33px !important;
+	  padding: 70px 10px 0px 20px;
+	  width: 80%
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption h3 {
+	  font-size: 20px;
+	  line-height: 23px;
+	  padding: 0 10px 0 20px;
+	  width: 80%
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button {
+	  padding: 15px 70px 15px 30px;
+	  position: absolute;
+	  bottom: 0;
+	  text-align: left;
+	  height: 70px;
+	  line-height: 40px;
+	  margin: 0;
+	  width: calc(100% - 20px);
+	  left: 0;
+	  right: 0;
+	  margin: 0 auto;
+	  background: vars.$color-primary;
+	  border: none
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box .caption .button svg {
+	  top: 25px
+	}
+  
+	.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box.no_button {
+	  height: 72vh;
+	  min-height: 72vh;
+	  margin-top: 0
+	}
+  }
+
+/*------------------------------------*\
+    Load More Button
+\*------------------------------------*/
+
+.gutenberg__wrap .load__more_button {
+	clear: both;
+	text-align: center
+  }
+  
+  .gutenberg__wrap .load__more_button .button .loadericon {
+	width: 20px;
+	height: 20px
+  }
+  
+  .gutenberg__wrap .load__more_button .button .loadericon img {
+	width: 20px;
+	height: 20px
+  }
+
+/*------------------------------------*\
+    Khums Calculator
+\*------------------------------------*/
+
+
+
+.gutenberg__wrap .khums_calculator {
+	padding: 50px 0 80px 0
+  }
+  
+  .gutenberg__wrap .khums_calculator h2 {
+	text-align: center;
+	font-family: "PT Sans", sans-serif;
+	color: vars.$color-primary;
+	padding: 40px 0 60px;
+	display: block;
+	font-size: 60px
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator h2 {
+	  font-size: 35px
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums:after,
+  .gutenberg__wrap .khums_calculator .khums:before {
+	content: "";
+	display: table
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums:after {
+	clear: both
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator {
+	width: 60%;
+	float: left;
+	background: vars.$white;
+	-webkit-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=10px, Color='#1A000000');
+	padding: 25px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p {
+	padding: 10px 0 5px 0;
+	color: vars.$black
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p label {
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 8px 16px;
+	text-align: left;
+	font-weight: bold;
+	clear: both
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculator p label {
+	  font-size: 18px
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p .calc {
+	padding: 15px;
+	color: vars.$black;
+	font-size: 16px;
+	border: 1px vars.$bg-grey solid;
+	width: calc(100% - 40px);
+	margin-left: 40px;
+	position: relative
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p.totalField {
+	font-weight: bold;
+	color: vars.$color-primary;
+	font-size: 24px;
+	text-transform: uppercase;
+	padding: 10px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p.totalField #total {
+	display: block;
+	padding: 5px 10px;
+	padding-left: 20px;
+	position: relative
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p.totalField label {
+	padding: 8px 0px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p.half_field {
+	width: 50%;
+	float: left
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculator p.half_field {
+	  width: 100%;
+	  float: none
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculator p.amount_field span {
+	width: 40px;
+	display: block;
+	font-weight: bold;
+	color: vars.$black;
+	position: absolute;
+	padding: 14px;
+	font-size: 20px;
+	text-align: right
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculator {
+	  width: 100%;
+	  float: none
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation {
+	margin-top: 3%;
+	display: block;
+	float: right;
+	width: 40%;
+	background: vars.$color-primary;
+	position: relative;
+	overflow: hidden;
+	padding: 40px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation p {
+	padding: 5px 0 10px 0;
+	color: vars.$white;
+	font-size: 20px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation p label {
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 8px 0 0 0;
+	text-align: left;
+	font-weight: bold
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation p span {
+	display: block;
+	padding: 0px 10px;
+	padding-left: 20px;
+	position: relative;
+	font-size: 27px;
+	font-weight: bold
+  }
+  
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation p {
+	  font-size: 18px
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation h3 {
+	font-weight: bold;
+	color: vars.$white;
+	font-size: 30px;
+	font-family: Calibri, "Open Sans", sans-serif
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation h3 {
+	  font-size: 25px
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_icon {
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+	position: absolute;
+	bottom: -110px;
+	right: -110px;
+	width: 400px;
+	height: 400px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_icon path {
+	fill: #3cffe1
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate {
+	position: relative;
+	z-index: 10;
+	padding-top: 10px
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate .product__description {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .close-project-popup,
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation h3 {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper #tabsnav {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .package__options,
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .reucrringDonationTab {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab {
+	display: block !important
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab .product__heading {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab .quantity,
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab .variations {
+	display: none
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table {
+	float: left;
+	width: calc(100% - 172px)
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table tr {
+	display: block !important
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table tr td {
+	position: relative
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table tr td input {
+	font-size: 25px;
+	width: 100%;
+	padding: 13px 10px 15px 40px;
+	margin-top: 0;
+	margin-left: 0;
+	border: none
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table tr td input {
+	  width: 100%;
+	  margin: 5px 0 0 0;
+	  padding: 8px 30px
+	}
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table tr td {
+	  display: block
+	}
+  }
+  
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab table {
+	  width: 100%
+	}
+  }
+  
+  .gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab .button {
+	background: vars.$color-accent;
+	color: vars.$white;
+	border: none;
+	width: 170px
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation .khums_project_donate #khums_donation .productWrapper .tab-content .singleDonationTab .button {
+	  width: 100%;
+	  font-size: 22px;
+	  padding: 20px 0;
+	  margin-bottom: 10px
+	}
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator .khums .calculation {
+	  width: 100%;
+	  float: none;
+	  margin-top: 0
+	}
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+	.gutenberg__wrap .khums_calculator {
+	  padding: 10px
+	}
+  }
+
+
+/*------------------------------------*\
+    Gutenberg Button
+\*------------------------------------*/
+
+.gutenberg__wrap .button,
+.gutenberg__wrap p.submit input[type=submit] {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 18px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  line-height: 24px
+}
+
+.gutenberg__wrap .button span,
+.gutenberg__wrap p.submit input[type=submit] span {
+  z-index: 2;
+  position: relative
+}
+
+.gutenberg__wrap .button.yellow,
+.gutenberg__wrap .button input[type=submit],
+.gutenberg__wrap p.submit input[type=submit].yellow,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit] {
+  color: vars.$white;
+  background: vars.$bg-yellow
+}
+
+.gutenberg__wrap .button.yellow.wave:before,
+.gutenberg__wrap .button.yellow.waveRound:before,
+.gutenberg__wrap .button input[type=submit].wave:before,
+.gutenberg__wrap .button input[type=submit].waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].yellow.wave:before,
+.gutenberg__wrap p.submit input[type=submit].yellow.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].wave:before,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].waveRound:before {
+  background: #f8e66d
+}
+
+.gutenberg__wrap .button.yellow.borderStyle,
+.gutenberg__wrap .button input[type=submit].borderStyle,
+.gutenberg__wrap p.submit input[type=submit].yellow.borderStyle,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle {
+  background: none;
+  border: 3px vars.$bg-yellow solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.yellow.borderStyle.whiteText,
+.gutenberg__wrap .button input[type=submit].borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit].yellow.borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle.whiteText {
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.yellow.borderStyle:hover,
+.gutenberg__wrap .button input[type=submit].borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit].yellow.borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle:hover {
+  background: vars.$bg-yellow;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.red,
+.gutenberg__wrap .button input[type=submit],
+.gutenberg__wrap p.submit input[type=submit].red,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit] {
+  color: vars.$white;
+  background: vars.$gradient-start;
+  background: -moz-linear-gradient(left, vars.$gradient-start 0%, vars.$color-accent 100%);
+  background: -webkit-gradient(linear, left, right, color-stop(0%, vars.$gradient-start), color-stop(100%, vars.$color-accent));
+  background: -webkit-linear-gradient(left, vars.$gradient-start 0%, vars.$color-accent 100%);
+  background: -o-linear-gradient(left, vars.$gradient-start 0%, vars.$color-accent 100%);
+  background: -ms-linear-gradient(left, vars.$gradient-start 0%, vars.$color-accent 100%);
+  background: -webkit-gradient(linear, left top, right top, from(vars.$gradient-start), to(vars.$color-accent));
+  background: linear-gradient(to right, vars.$gradient-start 0%, vars.$color-accent 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='vars.$white', endColorstr='vars.$black', GradientType=0)
+}
+
+.gutenberg__wrap .button.red.borderStyle,
+.gutenberg__wrap .button input[type=submit].borderStyle,
+.gutenberg__wrap p.submit input[type=submit].red.borderStyle,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle {
+  background: none;
+  border: 3px vars.$color-accent solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.red.borderStyle.whiteText,
+.gutenberg__wrap .button input[type=submit].borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit].red.borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle.whiteText {
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.red.borderStyle:hover,
+.gutenberg__wrap .button input[type=submit].borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit].red.borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle:hover {
+  background: vars.$color-accent;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.till,
+.gutenberg__wrap .button input[type=submit],
+.gutenberg__wrap p.submit input[type=submit].till,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit] {
+  color: vars.$white;
+  background: vars.$color-primary
+}
+
+.gutenberg__wrap .button.till.borderStyle,
+.gutenberg__wrap .button input[type=submit].borderStyle,
+.gutenberg__wrap p.submit input[type=submit].till.borderStyle,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle {
+  background: none;
+  border: 3px vars.$color-primary solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.till.borderStyle.whiteText,
+.gutenberg__wrap .button input[type=submit].borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit].till.borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle.whiteText {
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.till.borderStyle:hover,
+.gutenberg__wrap .button input[type=submit].borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit].till.borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit] input[type=submit].borderStyle:hover {
+  background: vars.$color-primary;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.white,
+.gutenberg__wrap p.submit input[type=submit].white {
+  color: vars.$bg-default;
+  background: vars.$white
+}
+
+.gutenberg__wrap .button.white.wave:before,
+.gutenberg__wrap .button.white.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].white.wave:before,
+.gutenberg__wrap p.submit input[type=submit].white.waveRound:before {
+  background: white
+}
+
+.gutenberg__wrap .button.white.borderStyle,
+.gutenberg__wrap p.submit input[type=submit].white.borderStyle {
+  background: none;
+  border: 3px vars.$white solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.white.borderStyle.whiteText,
+.gutenberg__wrap p.submit input[type=submit].white.borderStyle.whiteText {
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.white.borderStyle:hover,
+.gutenberg__wrap p.submit input[type=submit].white.borderStyle:hover {
+  background: vars.$white;
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .button.pink,
+.gutenberg__wrap p.submit input[type=submit].pink {
+  color: vars.$white;
+  background: vars.$color-accent-alt;
+  border: 2px vars.$color-accent-alt solid
+}
+
+.gutenberg__wrap .button.pink:hover,
+.gutenberg__wrap p.submit input[type=submit].pink:hover {
+  background: #f11594;
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .button.black,
+.gutenberg__wrap p.submit input[type=submit].black {
+  color: vars.$white;
+  background: vars.$black;
+  border: 2px vars.$black solid
+}
+
+.gutenberg__wrap .button.black:hover,
+.gutenberg__wrap p.submit input[type=submit].black:hover {
+  background: #0d0d0d;
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .button.default,
+.gutenberg__wrap p.submit input[type=submit].default {
+  background: vars.$bg-default;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.default.wave:before,
+.gutenberg__wrap .button.default.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].default.wave:before,
+.gutenberg__wrap p.submit input[type=submit].default.waveRound:before {
+  background: #7988a2
+}
+
+.gutenberg__wrap .button.default.borderStyle,
+.gutenberg__wrap p.submit input[type=submit].default.borderStyle {
+  background: none;
+  border: 3px vars.$bg-default solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.outlined,
+.gutenberg__wrap p.submit input[type=submit].outlined {
+  border: 2px solid
+}
+
+.gutenberg__wrap .button.blue,
+.gutenberg__wrap p.submit input[type=submit].blue {
+  background: #1865f2;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.blue.wave:before,
+.gutenberg__wrap .button.blue.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].blue.wave:before,
+.gutenberg__wrap p.submit input[type=submit].blue.waveRound:before {
+  background: #a9c6fa
+}
+
+.gutenberg__wrap .button.blue.borderStyle,
+.gutenberg__wrap p.submit input[type=submit].blue.borderStyle {
+  background: none;
+  border: 3px #1865f2 solid;
+  color: #1865f2;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.gradient,
+.gutenberg__wrap p.submit input[type=submit].gradient {
+  background: #23a4dd;
+  background: -moz-linear-gradient(left, #23a4dd 0%, #80c345 100%);
+  background: -webkit-gradient(linear, left, right, color-stop(0%, #23a4dd), color-stop(100%, #80c345));
+  background: -webkit-linear-gradient(left, #23a4dd 0%, #80c345 100%);
+  background: -o-linear-gradient(left, #23a4dd 0%, #80c345 100%);
+  background: -ms-linear-gradient(left, #23a4dd 0%, #80c345 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#23a4dd), to(#80c345));
+  background: linear-gradient(to right, #23a4dd 0%, #80c345 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='vars.$white', endColorstr='vars.$black', GradientType=0);
+  color: vars.$white;
+  padding: 20px 30px;
+  font-size: 18px
+}
+
+.gutenberg__wrap .button.gradient.wave:before,
+.gutenberg__wrap .button.gradient.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].gradient.wave:before,
+.gutenberg__wrap p.submit input[type=submit].gradient.waveRound:before {
+  background: #7988a2
+}
+
+.gutenberg__wrap .button.gradient.borderStyle,
+.gutenberg__wrap p.submit input[type=submit].gradient.borderStyle {
+  background: none;
+  border: 3px vars.$bg-default solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button.grey,
+.gutenberg__wrap p.submit input[type=submit].grey {
+  background: vars.$bg-grey;
+  color: vars.$white
+}
+
+.gutenberg__wrap .button.grey.wave:before,
+.gutenberg__wrap .button.grey.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit].grey.wave:before,
+.gutenberg__wrap p.submit input[type=submit].grey.waveRound:before {
+  background: #7988a2
+}
+
+.gutenberg__wrap .button.grey.borderStyle,
+.gutenberg__wrap p.submit input[type=submit].grey.borderStyle {
+  background: none;
+  border: 2px vars.$bg-grey solid;
+  color: vars.$bg-default;
+  padding: 11px 25px
+}
+
+.gutenberg__wrap .button i,
+.gutenberg__wrap p.submit input[type=submit] i {
+  margin-left: 8px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap .button:hover,
+.gutenberg__wrap p.submit input[type=submit]:hover {
+  -webkit-box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.15);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1px, OffY=4px, Color='#26000000');
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  -webkit-transform: translatey(-2px);
+  -moz-transform: translatey(-2px);
+  -ms-transform: translatey(-2px);
+  transform: translatey(-2px)
+}
+
+.gutenberg__wrap .button:hover.wave:before,
+.gutenberg__wrap .button:hover.waveRound:before,
+.gutenberg__wrap p.submit input[type=submit]:hover.wave:before,
+.gutenberg__wrap p.submit input[type=submit]:hover.waveRound:before {
+  -webkit-animation: ripple-in2 1.5s;
+  animation: ripple-in2 1.5s
+}
+
+.gutenberg__wrap .button:hover.white,
+.gutenberg__wrap p.submit input[type=submit]:hover.white {
+  -webkit-box-shadow: 1px 4px 15px rgba(255, 255, 255, 0);
+  box-shadow: 1px 4px 15px rgba(255, 255, 255, 0);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1px, OffY=4px, Color='#00FFFFFF')
+}
+
+.gutenberg__wrap .button:hover i,
+.gutenberg__wrap p.submit input[type=submit]:hover i {
+  margin-left: 13px;
+  margin-right: -5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+
+.gutenberg__wrap .button.smaller_button,
+.gutenberg__wrap p.submit input[type=submit].smaller_button {
+  padding: 6px 22px
+}
+
+@media (max-width: vars.$breakpoint-medium) {
+
+  .gutenberg__wrap .button,
+  .gutenberg__wrap p.submit input[type=submit] {
+    padding: 11px 28px
+  }
+}
+
+.gutenberg__wrap .text-button {
+  font-size: 15px;
+  font-family: Calibri, "Open Sans", sans-serif;
+  color: vars.$bg-default
+}
+
+.gutenberg__wrap .text-button i {
+  font-size: 11px;
+  display: inline-block;
+  padding: 2px 5px
+}

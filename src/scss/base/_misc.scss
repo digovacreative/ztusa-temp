@@ -1,0 +1,170 @@
+@use '../abstracts/variables' as vars;
+
+
+.acf-block-preview {
+    padding: 10px
+}
+
+.gutenberg__wrap {
+    /*! Gray v1.6.0 (https://github.com/karlhorky/gray) | MIT */
+    /*! jQuery UI - v1.9.1 - 2012-10-25
+  * http://jqueryui.com
+  * Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css, jquery.ui.theme.css
+  * Copyright 2012 jQuery Foundation and other contributors; Licensed MIT */
+}
+
+
+.gutenberg__wrap article,
+.gutenberg__wrap aside,
+.gutenberg__wrap details,
+.gutenberg__wrap figcaption,
+.gutenberg__wrap figure,
+.gutenberg__wrap footer,
+.gutenberg__wrap header,
+.gutenberg__wrap hgroup,
+.gutenberg__wrap main,
+.gutenberg__wrap menu,
+.gutenberg__wrap nav,
+.gutenberg__wrap section {
+    display: block
+}
+
+.gutenberg__wrap body {
+    line-height: 1
+}
+
+/*------------------------------------*\
+    Hidden Utility
+\*------------------------------------*/
+
+.gutenberg__wrap .hidden {
+    display: none;
+}
+
+/*------------------------------------*\
+    Separator
+\*------------------------------------*/
+
+.gutenberg__wrap .separator {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px vars.$bg-grey solid;
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    transform: rotate(-1deg)
+}
+
+.gutenberg__wrap .separator.right {
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    transform: rotate(1deg)
+}
+
+/*------------------------------------*\
+    Shortcode
+\*------------------------------------*/
+
+
+.gutenberg__wrap .super-shortcode ul {
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important
+}
+
+.gutenberg__wrap .super-shortcode input {
+    margin: 0 0 15px 0 !important
+}
+
+.gutenberg__wrap .super-shortcode .super-adaptive-placeholder {
+    padding: 0 10px
+}
+
+/*------------------------------------*\
+    Error
+\*------------------------------------*/
+
+.gutenberg__wrap .error-page {
+    padding: 100px 0
+}
+
+.gutenberg__wrap .error-page .error_heading {
+    font-size: 110px;
+    margin-top: 100px
+}
+
+/*------------------------------------*\
+    Single Post Layout
+\*------------------------------------*/
+
+.gutenberg__wrap .single__post {
+    width: 100%;
+    float: right
+  }
+
+
+  .gutenberg__wrap .single__post .medium_box .sidebar {
+    float: right;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 350px
+  }
+
+  .gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box {
+    padding-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease
+  }
+
+
+  
+  .gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box:after,.gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box:before {
+    content: "";
+    display: table
+  }
+  
+  .gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box:after {
+    clear: both
+  }
+  
+  .gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box .post__left_details {
+    position: relative;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden
+  }
+  
+  .gutenberg__wrap .single__post .medium_box .sidebar .latest__articles .secondary__scroller .item_box .post__left_details .video__image {
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover!important;
+    -moz-background-size: cover!important;
+    -o-background-size: cover!important;
+    background-size: cover!important;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
+  }
+  

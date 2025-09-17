@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as vars;
+
+.gutenberg__wrap .paddingVertical {
+    padding: 20px 0
+  }
+  
+  .gutenberg__wrap .paddingBottomTwenty {
+    padding-bottom: 20px
+  }
+  
+  .gutenberg__wrap .paddingBottomFourty {
+    padding-bottom: 40px
+  }
+  
+  .gutenberg__wrap .paddingTopTwenty {
+    padding-top: 20px
+  }

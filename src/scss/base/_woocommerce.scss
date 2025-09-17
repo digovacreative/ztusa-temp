@@ -1,0 +1,45 @@
+
+@use '../abstracts/variables' as vars;
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+	width: 100%;
+}
+
+/*------------------------------------*\
+    Variation
+\*------------------------------------*/
+
+
+.gutenberg__wrap .variation:after,.gutenberg__wrap .variation:before {
+    content: "";
+    display: table
+  }
+  
+  .gutenberg__wrap .variation:after {
+    clear: both
+  }
+  
+  .gutenberg__wrap .variation .variation-RecipientEmail,.gutenberg__wrap .variation .variation-RecipientName {
+    width: 50%;
+    float: left;
+    font-size: 16px;
+    line-height: 14px
+  }
+  
+  .gutenberg__wrap .variation .variation-RecipientEmail p,.gutenberg__wrap .variation .variation-RecipientName p {
+    font-size: 16px;
+    margin: 0;
+    padding: 0
+  }
+  
+  .gutenberg__wrap .variation dt {
+    line-height: 28px!important
+  }
+  
+  .gutenberg__wrap .variation dt.variation-AreyouaSayed,.gutenberg__wrap .variation dt.variation-PriceHandle {
+    display: none
+  }
+  
+  .gutenberg__wrap .variation dd.variation-AreyouaSayed p {
+    padding: 0 0 10px 0
+  }

@@ -1,0 +1,56 @@
+@use '../abstracts/variables' as vars;
+
+.gutenberg__wrap .floatLeft {
+    float: left
+  }
+  
+  .gutenberg__wrap .floatRight {
+    float: right
+  }
+  
+  .gutenberg__wrap .textCenter {
+    text-align: center
+  }
+  
+  .gutenberg__wrap .textAlignLeft {
+    text-align: left
+  }
+  
+  .gutenberg__wrap .textAlignright {
+    text-align: right
+  }
+
+
+  
+  .gutenberg__wrap .center {
+    text-align: center
+  }
+
+
+
+
+.gutenberg__wrap .alignright {
+  float: right;
+  text-align: right;
+  width: auto;
+  max-width: auto;
+  padding: 10px 0 10px 10px
+}
+
+.gutenberg__wrap .alignleft {
+  float: left;
+  text-align: left;
+  width: auto;
+  max-width: auto;
+  padding: 10px 10px 10px 0
+}
+
+// .gutenberg__wrap .alignnone {
+//   margin: 0 auto;
+//   clear: both;
+//   text-align: center;
+//   width: auto;
+//   max-width: auto;
+//   padding: 10px;
+//   height: auto
+// }

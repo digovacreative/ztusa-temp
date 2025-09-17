@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as vars;
+
+/* Style Base */
+
+.defaultBG {
+    background-color: vars.$bg-default;
+}
+
+.yellowBG {
+    background-color: vars.$bg-yellow;
+}
+
+.darkBlueBG {
+    background-color: vars.$bg-dark-blue;
+}
+
+.greyBG {
+    background-color: vars.$bg-grey;
+}
+
+.whiteBG {
+    background-color: vars.$white
+}
+
+.whiteText {
+    color: vars.$white
+}
+
+
+.admin_preview {
+    border: 1px #000000 solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden
+}

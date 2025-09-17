@@ -1,0 +1,63 @@
+[
+    {
+      "key": "group_two_up_hero_01",
+      "title": "Two-Up Hero (2-in-1)",
+      "fields": [
+        {
+          "key": "field_tuh_layout",
+          "label": "Layout",
+          "name": "layout",
+          "type": "button_group",
+          "choices": { "single": "Single Image", "collage": "Collage (4)" },
+          "default_value": "single",
+          "layout": "horizontal",
+          "return_format": "value"
+        },
+        {
+          "key": "field_tuh_image_main",
+          "label": "Main Image",
+          "name": "image_main",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "large",
+          "conditional_logic": [[{ "field": "field_tuh_layout", "operator": "==", "value": "single" }]]
+        },
+        {
+          "key": "field_tuh_image_shape",
+          "label": "Image Shape",
+          "name": "image_shape",
+          "type": "select",
+          "choices": { "circle": "Circle", "rounded": "Rounded", "square": "Square" },
+          "default_value": "circle",
+          "ui": 1,
+          "conditional_logic": [[{ "field": "field_tuh_layout", "operator": "==", "value": "single" }]]
+        },
+        {
+          "key": "field_tuh_collage",
+          "label": "Collage Images (up to 4)",
+          "name": "collage",
+          "type": "gallery",
+          "return_format": "id",
+          "preview_size": "medium",
+          "max": 4,
+          "conditional_logic": [[{ "field": "field_tuh_layout", "operator": "==", "value": "collage" }]]
+        },
+        { "key": "field_tuh_heading_top",    "label": "Heading (top)",    "name": "heading_top",    "type": "text", "instructions": "e.g. WHY YOUR" },
+        { "key": "field_tuh_heading_main",   "label": "Heading (main)",   "name": "heading_main",   "type": "text", "instructions": "e.g. GIFT" },
+        { "key": "field_tuh_heading_accent", "label": "Heading (accent)", "name": "heading_accent", "type": "text", "instructions": "e.g. MATTERS (rendered in accent colour)" },
+        { "key": "field_tuh_body",           "label": "Body",             "name": "body",           "type": "wysiwyg", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+        { "key": "field_tuh_button_link",    "label": "Button Link",      "name": "button_link",    "type": "link", "return_format": "array" },
+        { "key": "field_tuh_accent_color",   "label": "Accent Colour",    "name": "accent_color",   "type": "color_picker", "default_value": "#18a6a5" },
+        { "key": "field_tuh_text_color",     "label": "Text Colour",      "name": "text_color",     "type": "color_picker", "default_value": "#111111" }
+      ],
+      "location": [[{ "param": "block", "operator": "==", "value": "acf/two-up-hero" }]],
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "active": true,
+      "show_in_rest": 0,
+      "modified": 1737184444
+    }
+  ]
+  
