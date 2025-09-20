@@ -1,5 +1,11 @@
 <?php
 
+add_action('enqueue_block_assets', function () {
+    // adjust paths to your build output
+    wp_enqueue_script('landing-hero', get_stylesheet_directory_uri().'/assets/js/landing-hero.js', ['jquery'], '1.0', true);
+  });
+  
+
     add_action('wp_head','zahratrust_custom_css');
     
     /**

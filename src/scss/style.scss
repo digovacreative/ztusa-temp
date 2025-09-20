@@ -1563,5 +1563,287 @@ $teal-2: #0f8a8b;
     }
   }
 }
-
  
+
+/* ----------------------------------------------
+   Landing Hero (no slider) — scoped styles
+   Only affect elements inside .landing-hero
+---------------------------------------------- */
+
+.landing-hero {
+  padding: 3rem 0;
+  @media (min-width: 992px) {
+    padding: 10rem 0;
+  }
+  /* background image via inline style: style="--lh-bg:url(...)" */
+  position: relative;
+  &.has-bg {
+    background:
+      radial-gradient(80% 80% at 30% 20%, rgba(0,0,0,.18), rgba(0,0,0,.5)),
+      var(--lh-bg) center/cover no-repeat;
+    color: #fff;
+  }
+
+  .add__to_cart_wrap{
+    table{
+      display: none;
+    }
+  }
+
+  .landing-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 40px);
+  }
+
+  .lh__eyebrow {
+    margin: 0 0 8px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .9;
+  }
+
+  .lh__title {
+    margin: 0 0 30px;
+    line-height: 1.05;
+    font-weight: 800;
+
+    position: relative;
+    z-index: 2;
+    // text-align: center;
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+    color: vars.$white !important;
+    font-size: 50px;
+    .u-underline {
+      position: relative;
+      display: inline-block;
+      /* white text on hero */
+      color: inherit;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: .18em;                 /* thickness of underline */
+        background: #ff2b6e;           /* magenta bar */
+        bottom: .04em;                 /* sits tight under letters */
+        border-radius: 4px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .lh__lede {
+    margin: 0 0 16px;
+    line-height: 1.45;
+    font-size: clamp(16px, 2.4vw, 20px);
+    opacity: .95;
+  }
+
+  /* -----------------------------
+     Donate box (AJAX content)
+     We skin the legacy markup but
+     keep everything isolated here.
+  ------------------------------ */
+  .lh__donate {
+    max-width: 440px;
+  }
+
+  .lh__fund {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 12px 14px;
+    border: 1px solid #e6e8eb;
+    border-radius: 10px;
+    background: #fff;
+    color: #0f1720;
+    font-weight: 600;
+  }
+
+  .lh__donation-ui {
+    /* card shell */
+    background: #fff;
+    color: #0f1720;
+    border-radius: 14px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    padding: 18px;
+    overflow: hidden;
+
+    .lh__placeholder {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 600; color: #607082;
+      svg { fill: currentColor }
+    }
+
+    /* hide the old close X (we don’t use popup) */
+    .close-project-popup { display: none !important; }
+
+    /* Title / text coming from the product */
+    .quickproduct > h3 {
+      display: none; /* we already have hero heading; hide product title */
+    }
+    .product__description {
+      margin: 6px 0 4px;
+      p { margin: 0; color:#576070; }
+    }
+
+    /* ---------- Tabs (Single / Regular) ---------- */
+    /* Matches <ul class="tabs-xxxx">…<li>… */
+    [class^="tabs-"], [class*=" tabs-"] {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 2px 0 14px;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0; padding: 0;
+        a {
+          display: block;
+          text-align: center;
+          padding: 10px 12px;
+          background: #fff;
+          border: 2px solid #1abc9c;
+          color: #1abc9c;
+          border-radius: 10px;
+          font-weight: 700;
+        }
+        &.active a {
+          background: #1abc9c;
+          color: #fff;
+        }
+        svg { display: none; } /* keep label clean */
+      }
+    }
+
+    /* ---------- Panels ---------- */
+    /* tabContent-xxxx containers */
+    [class^="tabContent-"], [class*=" tabContent-"] {
+      /* no extra spacing changes needed; just ensure transitions look neat */
+    }
+
+    /* ---------- Amount presets grid ---------- */
+    .package__options { margin: 0 0 10px; }
+
+    .package__listing {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin: 0 0 8px;
+      padding: 0; list-style: none;
+
+      .package__listing_item,
+      .package__listing_item_recurring {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid #e7eaee;
+        border-radius: 10px;
+        background: #fff;
+        cursor: pointer;
+        transition: border-color .15s ease, box-shadow .15s ease;
+
+        span.inactive {
+          width: 10px; height: 10px; border-radius: 50%;
+          background: #cfd8dc; flex: 0 0 10px;
+        }
+        strong {
+          display: grid;
+          line-height: 1.1;
+          em { font-style: normal; font-weight: 800; font-size: 18px; }
+          small { color: #6b7280; font-weight: 600; }
+        }
+
+        &.active {
+          border-color: #1abc9c;
+          box-shadow: 0 0 0 3px rgba(26,188,156,.15);
+          span.inactive { background: #1abc9c; }
+        }
+      }
+
+      /* “You Decide” row in recurring */
+      .you_pay strong {
+        grid-template-columns: 1fr;
+        small { font-weight: 800; margin-bottom: 6px; }
+        input[type="number"] {
+          width: 100%;
+          padding: 10px 12px;
+          border: 1px solid #e7eaee;
+          border-radius: 8px;
+          background: #f7f8fa;
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+    }
+
+    /* ---------- Hidden Woo tables / qty tidy ---------- */
+    .variations.payyourprice_customize_class { display: none !important; }
+    .quantity {
+      display: none; /* single qty isn’t needed for donations */
+    }
+
+    /* ---------- Primary button ---------- */
+    .product__add_to_cart,
+    .button_wrapper {
+      margin-top: 12px;
+    }
+    .single_add_to_cart_button,
+    .recurring_add_to_cart_button,
+    .button.alt {
+      width: 100%;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 0;
+      font-weight: 800;
+      letter-spacing: .3px;
+      background: linear-gradient(90deg, #ff2ca1, #ff6437);
+      color: #fff !important;
+      box-shadow: 0 8px 24px rgba(255, 60, 120, .25);
+      transition: transform .06s ease, filter .15s ease;
+      &:hover { filter: brightness(1.02); }
+      &:active { transform: translateY(1px); }
+    }
+  }
+
+  /* small screens */
+  @media (max-width: 720px) {
+    .lh__donate { max-width: 100%; }
+    .lh__title .u-underline:after { height: .2em; }
+    .lh__donation-ui .package__listing {
+      grid-template-columns: 1fr 1fr; /* keep two-up on phones */
+    }
+  }
+}
+
+
+/* Only inside the Landing Hero donate UI */
+.landing-hero .lh__donation-ui {
+  /* remove the product title ("Sadaqa") from the injected card */
+  .quickproduct > h3 { display: none !important; }
+
+  /* SINGLE: hide NYP/custom table + any extra table row + qty */
+  .singleDonationTab .variations.payyourprice_customize_class,
+  .singleDonationTab + table,
+  .singleDonationTab .quantity { display: none !important; }
+
+  /* keep recurring "You Decide" visible (we already style .you_pay) */
+
+  /* nice spacing for duplicated descriptions */
+  .lh-desc--top   { margin: 0 0 10px; color: #576070; }
+  .lh-desc--bottom{ margin: 12px 0 0;  color: #576070; }
+}
+
+/* Force-hide title + any product descriptions inside the injected card(s) */
+.landing-hero .lh__donation-ui .quickproduct > h3,
+.landing-hero .lh__donation-ui .product__description { display: none !important; }
+
+/* Keep Single’s legacy NYP table and qty hidden even if markup reflows */
+.landing-hero .lh__donation-ui .singleDonationTab .variations.payyourprice_customize_class,
+.landing-hero .lh__donation-ui .singleDonationTab + table,
+.landing-hero .lh__donation-ui .singleDonationTab .quantity { display: none !important; }

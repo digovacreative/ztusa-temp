@@ -100,19 +100,19 @@ function my_acf_init() {
 
  
             acf_register_block_type([
-              'name'            => 'landing-hero',
-              'title'           => __('Landing Hero', 'the-zahra-trust'),
-              'description'     => __('Single hero (no slider) using the first banner row + optional quick-donate box.', 'the-zahra-trust'),
-              'category'        => 'layout',
-              'icon'            => 'slides',
-              'keywords'        => ['hero','landing','donation','banner'],
-              'mode'            => 'preview',
-              'supports'        => [
-                'align'  => ['wide','full'],
-                'anchor' => true,
-                'html'   => false,
-              ],
-              'render_callback' => 'my_acf_block_render_callback',
+                'name'            => 'landing-hero', // <— slug
+                'title'           => __('Landing Hero', 'the-zahra-trust'),
+                'description'     => __('Single hero (no slider) using the first banner row + optional quick-donate box.', 'the-zahra-trust'),
+                'category'        => 'layout',
+                'icon'            => 'slides',
+                'keywords'        => ['hero','landing','donation','banner'],
+                'mode'            => 'edit',
+                'supports'        => [
+                  'align'  => ['wide','full'],
+                  'anchor' => true,
+                  'html'   => false,
+                ],
+                'render_callback' => 'my_acf_block_render_callback',
             ]);
     
           

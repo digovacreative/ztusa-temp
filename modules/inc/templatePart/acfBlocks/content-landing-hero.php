@@ -1,213 +1,234 @@
 <?php
 /**
  * Block Name: Landing Hero (no slider)
- * Safe/robust version — same classes/fields as Homepage Carousel, but single hero
+ * Description: Single hero with Fund selector and the new donation box design.
  */
-
 defined('ABSPATH') || exit;
 
-//
-// Helpers
-//
-if ( ! function_exists('dm_media_to_url') ) {
-    /**
-     * Accepts ACF image field (array|ID|URL|string) and returns a URL or ''.
-     */
-    function dm_media_to_url( $val, $size = 'full' ) : string {
+/* ----------------------------
+   Helpers
+----------------------------- */
+if (!function_exists('dm_media_to_url')) {
+    function dm_media_to_url($val, $size = 'full') : string {
         if (empty($val)) return '';
-        // ACF image array
         if (is_array($val)) {
             if (!empty($val['url'])) return esc_url($val['url']);
             if (!empty($val['ID']))  return esc_url(wp_get_attachment_image_url((int)$val['ID'], $size) ?: '');
         }
-        // Numeric attachment ID
-        if (is_numeric($val)) {
-            return esc_url(wp_get_attachment_image_url((int)$val, $size) ?: '');
-        }
-        // Raw URL
-        if (is_string($val) && filter_var($val, FILTER_VALIDATE_URL)) {
-            return esc_url($val);
-        }
+        if (is_numeric($val)) return esc_url(wp_get_attachment_image_url((int)$val, $size) ?: '');
+        if (is_string($val) && filter_var($val, FILTER_VALIDATE_URL)) return esc_url($val);
         return '';
     }
 }
 
-$ajaxurl   = get_stylesheet_directory_uri() . '/modules/inc/customajax.php'; // keep your existing endpoint
-$is_mobile = function_exists('isMobile') ? (bool) isMobile() : wp_is_mobile();
-
-// Pull first banner item (if any)
-$first = null;
-if ( have_rows('banner_items') ) {
-    the_row(); // move pointer to first row
-    $first = [
-        'img_mobile' => get_sub_field('banner_image_mobile'),
-        'img_desktop'=> get_sub_field('banner_image'),
-        'small'      => (string) get_sub_field('banner_small_heading'),
-        'head'       => (string) get_sub_field('banner_heading'),
-        'text'       => (string) get_sub_field('banner_text'),
-        'pos'        => (string) ( get_sub_field('text_position') ?: '' ),
-        'link_raw'   => get_sub_field('button_link'),
-        'link_text'  => (string) get_sub_field('button_label'),
-    ];
-    // Reset the_rows pointer so other code using the repeater later won’t be affected
-    reset_rows();
+/** Wrap the last word of a string in a span for the magenta underline */
+if (!function_exists('lh_underline_last_word')) {
+    function lh_underline_last_word(string $headline) : string {
+        $headline = trim($headline);
+        if ($headline === '') return '';
+        $parts = preg_split('/\s+/', $headline);
+        if (!$parts || count($parts) < 2) {
+            return '<span class="u-underline">'.esc_html($headline).'</span>';
+        }
+        $last = array_pop($parts);
+        return esc_html(implode(' ', $parts)).' <span class="u-underline">'.esc_html($last).'</span>';
+    }
 }
 
-// Derive hero values
+$ajaxurl   = get_stylesheet_directory_uri() . '/modules/inc/customajax.php'; // <- keep using your working endpoint
+$is_mobile = function_exists('isMobile') ? (bool) isMobile() : wp_is_mobile();
+$currency  = get_woocommerce_currency_symbol();
+
+/* ----------------------------
+   Hero content (ACF repeater)
+----------------------------- */
+$first = null;
+if (have_rows('banner_items')) {
+    the_row();
+    $first = [
+        'img_mobile'  => get_sub_field('banner_image_mobile'),
+        'img_desktop' => get_sub_field('banner_image'),
+        'small'       => (string) get_sub_field('banner_small_heading'),
+        'head'        => (string) get_sub_field('banner_heading'),
+        'text'        => (string) get_sub_field('banner_text'),
+        'pos'         => (string) (get_sub_field('text_position') ?: ''),
+    ];
+    reset_rows();
+}
 $banner_url = '';
-$link_url   = '';
-$link_text  = '';
-$small = $head = $text = $pos = '';
+$pos = $small = $head = $text = '';
 if ($first) {
     $chosen     = ($is_mobile && $first['img_mobile']) ? $first['img_mobile'] : $first['img_desktop'];
     $banner_url = dm_media_to_url($chosen, 'full');
-
     $pos   = $first['pos'];
     $small = $first['small'];
     $head  = $first['head'];
     $text  = $first['text'];
-
-    $link_raw  = $first['link_raw'];
-    $link_text = $first['link_text'];
-
-    if (is_array($link_raw)) {
-        $link_url  = isset($link_raw['url']) ? $link_raw['url'] : '';
-        if (!$link_text && !empty($link_raw['title'])) $link_text = (string) $link_raw['title'];
-    } elseif (is_string($link_raw)) {
-        $link_url = $link_raw;
-    }
-    $link_url = esc_url($link_url);
 }
 
-// Donation box (safe count/array checks)
-$proj = get_field('project_select');
-$proj = is_array($proj) ? array_values(array_filter($proj)) : [];
+/* ----------------------------
+   Funds / Project select
+----------------------------- */
+$proj       = get_field('project_select');
+$proj       = is_array($proj) ? array_values(array_filter($proj)) : [];
 $proj_count = count($proj);
+
+// Preferred default fund
+$product_id = $proj_count ? (int) $proj[0] : 0;
+if (isset($_GET['fund']) && ctype_digit((string) $_GET['fund'])) {
+    $product_id = (int) $_GET['fund'];
+}
 ?>
 
-<style>
-/* Keep your original class names. Slightly trim the slider-only CSS. */
-.gutenberg__wrap .homepage__slider_carousel.medium .main__carousel,
-.gutenberg__wrap .homepage__slider_carousel.medium,
-.gutenberg__wrap .homepage__slider_carousel.medium .main__carousel .item_box {
-  height: auto !important;
-  width: 100% !important;
-  min-height: auto !important;
-}
-/* Remove the old before overlay if it existed */
-.gutenberg__wrap .homepage__slider_carousel .main__carousel .item_box:before { display: none; }
-</style>
+<section class="landing-hero<?php echo $banner_url ? ' has-bg' : ''; ?>"<?php
+  if ($banner_url) echo ' style="--lh-bg:url('.esc_url($banner_url).')"'; ?>>
+  <div class="landing-hero__inner <?php echo esc_attr($pos ?: 'left'); ?>">
+    <?php if ($small): ?><p class="lh__eyebrow"><?php echo esc_html($small); ?></p><?php endif; ?>
 
-<div class="gutenberg__wrap">
-  <section class="homepage__slider_carousel medium <?php echo esc_attr( get_field('banner_style') ?: '' ); ?>">
+    <?php if ($head): ?>
+      <h1 class="lh__title"><?php echo lh_underline_last_word($head); // adds the pink underline ?></h1>
+    <?php endif; ?>
 
-    <div class="main__carousel" id="carousel__main_scroller">
-      <div class="item_wrap">
-        <?php if ( $link_url ) : ?><a href="<?php echo $link_url; ?>"><?php endif; ?>
+    <?php if ($text): ?><p class="lh__lede"><?php echo esc_html($text); ?></p><?php endif; ?>
 
-          <div
-            class="item_box <?php echo ($small || $head || $text) ? 'has_overlay' : ''; ?> <?php echo empty($link_text) ? 'no_button' : ''; ?>"
-            <?php if ($banner_url): ?>
-              style="background-image:url('<?php echo esc_url($banner_url); ?>'); background-size:contain!important; background-position:top center!important; background-repeat:no-repeat!important;"
-            <?php endif; ?>
-          >
-            <div class="caption__bg <?php echo esc_attr($pos); ?>"></div>
-            <div class="large_box">
-              <div class="caption <?php echo esc_attr($pos); ?>" style="top:0;">
-                <?php if ($small): ?><h4><?php echo esc_html($small); ?></h4><?php endif; ?>
-                <?php if ($head) : ?><h1><?php echo esc_html($head); ?></h1><?php endif; ?>
-                <?php if ($text) : ?><h3><?php echo esc_html($text); ?></h3><?php endif; ?>
+    <?php if (get_field('enable_donation_box')): ?>
+      <div class="lh__donate">
+        <?php if ($proj_count > 1): ?>
+          <label class="lh__fund-label" for="lh__fund">
+            <?php echo esc_html(get_field('homepage_donation_heading') ?: 'Choose a fund'); ?>
+          </label>
+          <select id="lh__fund" class="lh__fund">
+            <option value=""><?php esc_html_e('Select a fund','textdomain'); ?></option>
+            <?php foreach ($proj as $pid): ?>
+              <option value="<?php echo esc_attr($pid); ?>" <?php selected($pid, $product_id); ?>>
+                <?php echo esc_html(get_the_title($pid)); ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
+        <?php endif; ?>
 
-                <?php if ($link_text && $link_url): ?>
-                  <a href="<?php echo $link_url; ?>" class="button border white">
-                    <?php echo esc_html($link_text); ?>
-                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                      <g><rect fill="none" height="32" width="32"/></g>
-                      <g><polygon points="16,2.001 16,10 2,10 2,22 16,22 16,30 30,16"/></g>
-                    </svg>
-                  </a>
-                <?php endif; ?>
-
-                <?php if ( get_field('enable_donation_box') ) : ?>
-    <div class="banner_quick_donation_banner_box">  
-      <div class="donation__box">
-        <div class="quick_donation_banner_container">
-          <?php if ($v = get_field('homepage_donation_heading')): ?>
-            <h3><?php echo esc_html($v); ?></h3>
-          <?php endif; ?>
-
-          <?php if ($v = get_field('mobile_text')): if ($is_mobile): ?>
-            <p><?php echo wp_kses_post($v); ?></p>
-          <?php endif; endif; ?>
-
-          <?php if ( $proj_count !== 1 ): ?>
-            <select class="select_project_name_banner">
-              <option value=""><?php esc_html_e('Select a fund', 'textdomain'); ?></option>
-              <?php foreach ( $proj as $project_id ): ?>
-                <option value="<?php echo esc_attr($project_id); ?>" data-project-id="<?php echo esc_attr($project_id); ?>">
-                  <?php echo esc_html( get_the_title($project_id) ); ?>
-                </option>
-              <?php endforeach; ?>
-            </select>
-          <?php endif; ?>
-
-          <div id="quick_donation_banner">
-            <p>
-              <span aria-hidden="true">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g><rect fill="none" height="32" width="32"></rect></g><g><polygon points="16,2.001 16,10 2,10 2,22 16,22 16,30 30,16"></polygon></g></svg>
-              </span>
-              <?php esc_html_e('Select a fund', 'textdomain'); ?>
-            </p>
+        <!-- Where the AJAX donation UI is injected -->
+        <div id="lh__donation-ui"
+             class="lh__donation-ui"
+             data-ajax="<?php echo esc_url($ajaxurl); ?>"
+             data-product-id="<?php echo esc_attr($product_id); ?>"
+             data-currency="<?php echo esc_attr($currency); ?>">
+          <div class="lh__placeholder">
+            <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,2 16,10 2,10 2,22 16,22 16,30 30,16"></polygon></svg>
+            <?php echo $proj_count === 1 ? esc_html__('Loading donation options…','textdomain') : esc_html__('Select a fund','textdomain'); ?>
           </div>
         </div>
       </div>
-    </div>
-  <?php endif; // donation box ?>
-
-              </div>
-            </div>
-          </div>
-
-          <?php if ($banner_url): ?>
-            <img src="<?php echo esc_url($banner_url); ?>" alt="" loading="lazy" />
-          <?php endif; ?>
-
-        <?php if ( $link_url ) : ?></a><?php endif; ?>
-      </div>
-    </div><!-- /#carousel__main_scroller -->
-
-  </section>
+    <?php endif; ?>
+  </div>
+</section>
 
 
-</div>
+<script>
+(function ($) {
+  function wireOneCard($card){
+    if (!$card.length || $card.data('lh-wired')) return;
 
-<script type="text/javascript">
-(function($){
-  // If exactly one project, auto-load it into banner
-  <?php if ( !empty($proj) && $proj_count === 1 ) : ?>
-    load_the_banner_project_quickdonate(<?php echo (int) $proj[0]; ?>);
-  <?php endif; ?>
+    // 1) Remove title & ALL product descriptions in this card
+    $card.find('.quickproduct > h3').remove();
+    // remove Woo "product heading" (h1 + price wrapper)
+$card.find('.product__heading').remove();
 
-  // Wire up selector
-  $(document).on('change', '.select_project_name_banner', function(e){
-    var productID = $(this).val();
-    if (productID) {
-      load_the_banner_project_quickdonate(productID);
+
+    // 2) SINGLE: add "You Decide" and sync to Woo NYP field
+    var pid = String($card.find('input[name="add-to-cart"]').val() || '').trim();
+    if (!pid) { $card.data('lh-wired', true); return; }
+
+    var $nyp  = $card.find('.pyppledgeamount' + pid);          // hidden NYP input Woo reads
+    var $list = $card.find('.singleDonationTab .package__listing');
+
+    if ($list.length && $nyp.length && !$list.find('li.you_pay').length) {
+      var activeAmt = parseFloat($list.find('.package__listing_item.active').data('value')) || '';
+      var firstAmt  = parseFloat($list.find('.package__listing_item').first().data('value'))  || '';
+      var initAmt   = activeAmt || firstAmt || '';
+
+      $list.append(
+        '<li class="package__listing_item you_pay" data-project-id="'+pid+'">' +
+          '<span class="inactive"></span>' +
+          '<strong>' +
+            '<small>You Decide</small>' +
+            '<input type="number" min="1" step="1" class="single_donation your_price_single_'+pid+'" value="'+(initAmt || '')+'"/>' +
+          '</strong>' +
+        '</li>'
+      );
+
+      // initial NYP value
+      $nyp.val(initAmt);
     }
-    e.preventDefault();
-  });
 
-  function load_the_banner_project_quickdonate(project_id){
-    if (!project_id) return false;
-    $.ajax({
-      url: "<?php echo esc_url( $ajaxurl ); ?>",
-      type: "POST",
-      data: { action: "loadproject", project_id: project_id },
-      success: function(html){
-        $('#quick_donation_banner').addClass('active').html(html);
-      }
+    // Click a preset amount in Single
+    $card.off('click.lhSinglePreset', '.singleDonationTab .package__listing_item')
+      .on('click.lhSinglePreset', '.singleDonationTab .package__listing_item', function(e){
+        if ($(this).hasClass('you_pay')) return;        // handled below
+        e.preventDefault();
+        var $li = $(this);
+        $li.addClass('active').siblings('.package__listing_item').removeClass('active');
+        var v = parseFloat($li.data('value')) || '';
+        $card.find('.your_price_single_'+pid).val('');  // clear custom when preset chosen
+        $nyp.val(v);
+      });
+
+    // Click the You Decide row -> activate + focus + sync
+    $card.off('click.lhYouPay', '.singleDonationTab .package__listing_item.you_pay')
+      .on('click.lhYouPay', '.singleDonationTab .package__listing_item.you_pay', function(e){
+        if ($(e.target).is('input')) return;
+        e.preventDefault();
+        var $li = $(this);
+        $li.addClass('active').siblings('.package__listing_item').removeClass('active');
+        var $inp = $li.find('input[type="number"]');
+        $inp.trigger('focus');
+        $nyp.val(parseFloat($inp.val()) || '');
+      });
+
+    // Typing in You Decide -> sync NYP and mark active
+    $card.off('input.lhYouPayInput', '.your_price_single_'+pid)
+      .on('input.lhYouPayInput', '.your_price_single_'+pid, function(){
+        var v = parseFloat(this.value) || '';
+        $nyp.val(v);
+        $(this).closest('.you_pay').addClass('active').siblings('.package__listing_item').removeClass('active');
+      });
+
+    // Hide legacy NYP table/qty for Single (belt & braces)
+    $card.find('.singleDonationTab .variations.payyourprice_customize_class, .singleDonationTab + table, .singleDonationTab .quantity').hide();
+
+    // Recurring: clicking presets updates the recurring custom input
+    $card.off('click.lhRecurring', '.package__listing_item_recurring').on('click.lhRecurring', '.package__listing_item_recurring', function(e){
+      if ($(e.target).is('input')) return;
+      e.preventDefault();
+      var $li = $(this);
+      $li.addClass('active').siblings('.package__listing_item_recurring').removeClass('active');
+      var pidR = $li.data('project-id');
+      var amtR = parseFloat($li.data('value')) || '';
+      if (pidR) $card.find('.your_price_recurring_'+pidR).val(amtR);
     });
-    return false;
+
+    $card.data('lh-wired', true);
   }
+
+  // Process any existing cards inside the hero donation UI
+  window.lhFixDonationCard = function(rootSel){
+    var $root = $(rootSel || '#lh__donation-ui');
+    $root.find('.pop-up-product').each(function(){ wireOneCard($(this)); });
+  };
+
+  // Observe the container for swaps/reloads and re-wire
+  window.lhObserveDonationUI = function(rootSel){
+    var root = document.querySelector(rootSel || '#lh__donation-ui');
+    if (!root) return;
+    var mo = new MutationObserver(function(){
+      window.lhFixDonationCard(rootSel);
+    });
+    mo.observe(root, { childList: true, subtree: true });
+    // first pass
+    window.lhFixDonationCard(rootSel);
+  };
 })(jQuery);
+
+// Call this RIGHT AFTER you inject the AJAX html:
+lhObserveDonationUI('#lh__donation-ui');
 </script>

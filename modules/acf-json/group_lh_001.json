@@ -1,0 +1,341 @@
+{
+    "key": "group_lh_001",
+    "title": "Landing Hero (no slider)",
+    "fields": [
+        {
+            "key": "field_lh_banner_items",
+            "label": "Banner items",
+            "name": "banner_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Use the first row for this single-hero block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_lh_banner_heading",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add banner row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_lh_banner_image",
+                    "label": "Banner image (desktop)",
+                    "name": "banner_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "large",
+                    "library": "all",
+                    "mime_types": "",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_banner_image_mobile",
+                    "label": "Banner image (mobile)",
+                    "name": "banner_image_mobile",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "mime_types": "",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_banner_small_heading",
+                    "label": "Small heading",
+                    "name": "banner_small_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_banner_heading",
+                    "label": "Main heading",
+                    "name": "banner_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Last word will be underlined automatically.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_banner_text",
+                    "label": "Supporting text",
+                    "name": "banner_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 2,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_text_position",
+                    "label": "Text position",
+                    "name": "text_position",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Left",
+                        "center": "Center",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "return_format": "value",
+                    "ui": 1,
+                    "ajax": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_button_label",
+                    "label": "Button label",
+                    "name": "button_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_lh_banner_items"
+                },
+                {
+                    "key": "field_lh_button_link",
+                    "label": "Button link",
+                    "name": "button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_lh_banner_items"
+                }
+            ]
+        },
+        {
+            "key": "field_lh_enable_donation_box",
+            "label": "Enable donation box",
+            "name": "enable_donation_box",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 1,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_lh_project_select",
+            "label": "Project \/ Fund(s)",
+            "name": "project_select",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Choose one or more WooCommerce products (funds). If multiple, a selector will appear.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "product"
+            ],
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 0,
+            "max": 0,
+            "return_format": "id",
+            "taxonomy": [],
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_lh_homepage_donation_heading",
+            "label": "Fund selector heading",
+            "name": "homepage_donation_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Choose a fund",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_lh_mobile_text",
+            "label": "Mobile helper text",
+            "name": "mobile_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_lh_banner_style",
+            "label": "Banner style (optional class)",
+            "name": "banner_style",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Adds a class to the section element, e.g. 'dark'.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/landing-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Fields for the Landing Hero (no slider) block.",
+    "show_in_rest": 0,
+    "modified": 1758407607
+}
