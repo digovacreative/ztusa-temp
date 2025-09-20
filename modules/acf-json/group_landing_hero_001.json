@@ -1,9 +1,9 @@
 {
-    "key": "group_5de19d1fe9eb1",
-    "title": "Homepage Carousel",
+    "key": "group_landing_hero_001",
+    "title": "Landing Hero",
     "fields": [
         {
-            "key": "field_5e459226aa700",
+            "key": "field_lh_tab_banner",
             "label": "Banner Items",
             "name": "",
             "aria-label": "",
@@ -21,12 +21,12 @@
             "selected": 0
         },
         {
-            "key": "field_5e441fbc2a4a3",
+            "key": "field_lh_banner_items",
             "label": "Banner Items",
             "name": "banner_items",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Landing Hero uses ONLY the first row.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -42,7 +42,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5e441fc82a4a4",
+                    "key": "field_lh_banner_image",
                     "label": "Banner Image",
                     "name": "banner_image",
                     "aria-label": "",
@@ -65,10 +65,10 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e4422842a4a6",
+                    "key": "field_lh_text_position",
                     "label": "Text Position",
                     "name": "text_position",
                     "aria-label": "",
@@ -95,10 +95,10 @@
                     "placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e8e345df4f5e",
+                    "key": "field_lh_overlay_style",
                     "label": "Overlay Style",
                     "name": "overlay_style",
                     "aria-label": "",
@@ -125,10 +125,10 @@
                     "placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e4422cd2a4a7",
+                    "key": "field_lh_banner_small_heading",
                     "label": "Banner Small Heading",
                     "name": "banner_small_heading",
                     "aria-label": "",
@@ -146,10 +146,10 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e585d0c42019",
+                    "key": "field_lh_banner_heading",
                     "label": "Banner Heading",
                     "name": "banner_heading",
                     "aria-label": "",
@@ -167,10 +167,10 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e4422d82a4a8",
+                    "key": "field_lh_banner_text",
                     "label": "Banner Text",
                     "name": "banner_text",
                     "aria-label": "",
@@ -188,10 +188,10 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e4422df2a4a9",
+                    "key": "field_lh_button_label",
                     "label": "Button Label",
                     "name": "button_label",
                     "aria-label": "",
@@ -209,10 +209,10 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 },
                 {
-                    "key": "field_5e4422e82a4aa",
+                    "key": "field_lh_button_link",
                     "label": "Button Link",
                     "name": "button_link",
                     "aria-label": "",
@@ -230,12 +230,12 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5e441fbc2a4a3"
+                    "parent_repeater": "field_lh_banner_items"
                 }
             ]
         },
         {
-            "key": "field_5e87920585926",
+            "key": "field_lh_tab_settings",
             "label": "Settings",
             "name": "",
             "aria-label": "",
@@ -253,7 +253,7 @@
             "selected": 0
         },
         {
-            "key": "field_5e87921985927",
+            "key": "field_lh_size",
             "label": "Size",
             "name": "size",
             "aria-label": "",
@@ -282,7 +282,7 @@
             "save_options": 0
         },
         {
-            "key": "field_5e879581828d7",
+            "key": "field_lh_banner_style",
             "label": "Style",
             "name": "banner_style",
             "aria-label": "",
@@ -311,7 +311,7 @@
             "save_options": 0
         },
         {
-            "key": "field_5eb757b287f38",
+            "key": "field_lh_tab_donation",
             "label": "Donation Box",
             "name": "",
             "aria-label": "",
@@ -329,7 +329,7 @@
             "selected": 0
         },
         {
-            "key": "field_5eb757c187f39",
+            "key": "field_lh_enable_donation_box",
             "label": "Enable Donation Box",
             "name": "enable_donation_box",
             "aria-label": "",
@@ -349,7 +349,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5eb893505abe5",
+            "key": "field_lh_homepage_donation_heading",
             "label": "Heading",
             "name": "homepage_donation_heading",
             "aria-label": "",
@@ -359,7 +359,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5eb757c187f39",
+                        "field": "field_lh_enable_donation_box",
                         "operator": "==",
                         "value": "1"
                     }
@@ -377,7 +377,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5eb757cd87f3a",
+            "key": "field_lh_project_select",
             "label": "Project Select",
             "name": "project_select",
             "aria-label": "",
@@ -387,7 +387,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5eb757c187f39",
+                        "field": "field_lh_enable_donation_box",
                         "operator": "==",
                         "value": "1"
                     }
@@ -420,7 +420,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/homepage-slider"
+                "value": "acf\/landing-hero"
             }
         ]
     ],
@@ -432,6 +432,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1758392710
+    "show_in_rest": false,
+    "modified": 1758393392
 }

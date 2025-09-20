@@ -1354,7 +1354,8 @@
 }
 
 .gutenberg__wrap .banner_quick_donation_banner_box #quick_donation_banner .pop-up-product .quickproduct .productWrapper #tabsnav {
-	width: 100%
+	width: 100%;
+	margin-left:0;
 }
 
 .gutenberg__wrap .banner_quick_donation_banner_box #quick_donation_banner .pop-up-product .quickproduct .productWrapper #tabsnav li {
@@ -1637,7 +1638,7 @@
 .gutenberg__wrap .banner_quick_donation_banner_box #quick_donation_banner .pop-up-product .quickproduct .productWrapper .tab-content .entry-summary .button,
 .gutenberg__wrap .banner_quick_donation_banner_box #quick_donation_banner .pop-up-product .quickproduct .productWrapper .tab-content .summary .button {
 	width: 100%;
-	float: none;
+	// float: none;
 	display: block;
 	margin-top: 15px;
 	background: #db0d84;
@@ -7007,7 +7008,7 @@
 
 
 .faq_content_box {
-	padding: 50px;
+	padding: 20px;
 	position: relative;
 	margin: 0 auto
 }

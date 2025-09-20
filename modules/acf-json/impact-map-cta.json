@@ -1,0 +1,68 @@
+[
+    {
+      "key": "group_impact_map_cta_001",
+      "title": "Impact Map + CTA",
+      "fields": [
+        {
+          "key": "field_map_embed_code",
+          "label": "Embed code",
+          "name": "map_embed_code",
+          "type": "textarea",
+          "instructions": "Paste the full embed (iframe or script).",
+          "new_lines": "",
+          "rows": 6
+        },
+        {
+          "key": "field_intro_text",
+          "label": "Intro (italic)",
+          "name": "intro_text",
+          "type": "text",
+          "default_value": "Education is the best sadaqa jariyah."
+        },
+        {
+          "key": "field_title_main",
+          "label": "Heading",
+          "name": "title_main",
+          "type": "text",
+          "default_value": "Want to make your gift go further?"
+        },
+        {
+          "key": "field_title_accent",
+          "label": "Heading (accent)",
+          "name": "title_accent",
+          "type": "text",
+          "instructions": "Final phrase that appears teal & underlined.",
+          "default_value": "all year round."
+        },
+        {
+          "key": "field_body_text",
+          "label": "Body (optional)",
+          "name": "body_text",
+          "type": "textarea",
+          "rows": 3
+        },
+        {
+          "key": "field_btn_one_time",
+          "label": "Button – One-time",
+          "name": "btn_one_time",
+          "type": "link",
+          "return_format": "array"
+        },
+        {
+          "key": "field_btn_monthly",
+          "label": "Button – Monthly",
+          "name": "btn_monthly",
+          "type": "link",
+          "return_format": "array"
+        }
+      ],
+      "location": [[{ "param": "block", "operator": "==", "value": "acf/impact-map-cta" }]],
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "active": true,
+      "show_in_rest": 0
+    }
+  ]
+  

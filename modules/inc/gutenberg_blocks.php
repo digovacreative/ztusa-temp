@@ -85,20 +85,6 @@ function my_acf_init() {
           ));
           
 
-
-        acf_register_block_type(
-            array(
-                'name'				=> 'legacy-callout',
-                'title'				=> __('Legacy Callout'),
-                'description'       => __('Gradient callout with optional button'),
-                'render_callback'	=> 'my_acf_block_render_callback',
-                'category'			=> 'formatting',
-                'mode'				=> 'edit',
-                'icon'				=> 'megaphone',
-                'keywords'          => ['callout','cta','donation','legacy'],
-                )
-        );
-
         acf_register_block_type(
             array(
                 'name'            => 'project-pills',
@@ -111,8 +97,29 @@ function my_acf_init() {
                 'keywords'        => array('woocommerce','products','pills','buttons','projects'),
             )
         );
+
+ 
+            acf_register_block_type([
+              'name'            => 'landing-hero',
+              'title'           => __('Landing Hero', 'the-zahra-trust'),
+              'description'     => __('Single hero (no slider) using the first banner row + optional quick-donate box.', 'the-zahra-trust'),
+              'category'        => 'layout',
+              'icon'            => 'slides',
+              'keywords'        => ['hero','landing','donation','banner'],
+              'mode'            => 'preview',
+              'supports'        => [
+                'align'  => ['wide','full'],
+                'anchor' => true,
+                'html'   => false,
+              ],
+              'render_callback' => 'my_acf_block_render_callback',
+            ]);
+    
+          
+          
+
         
-        acf_register_block_type([
+         acf_register_block_type([
             'name'            => 'legacy-callout',
             'title'           => __('Legacy Callout', 'the-zahra-trust'),
             'description'     => __('Gradient callout with optional button', 'the-zahra-trust'),
@@ -180,6 +187,42 @@ function my_acf_init() {
                 'keywords'			=> array( 'image-overlap' ),
             )
         );
+
+        acf_register_block_type([
+            'name'            => 'donation-hero',
+            'title'           => __('Donation Hero Banner','the-zahra-trust'),
+            'description'     => __('Full-width hero with headline and Fundraise Up donation widget.','the-zahra-trust'),
+            'category'        => 'layout',
+            'icon'            => 'heart',
+            'keywords'        => ['fundraise','donation','fundraise up','hero'],
+            'mode'            => 'preview',
+            'supports'        => ['align' => ['full','wide'], 'anchor' => true, 'html' => false],
+            'render_callback'	=> 'my_acf_block_render_callback',
+          ]);
+
+          acf_register_block_type(array(
+            'name'            => 'fu-top-supporters',
+            'title'           => __('Top Supporters (Fundraise Up)'),
+            'description'     => __('Heading + Fundraise Up Top Supporters embed trigger.'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category'        => 'widgets',
+            'icon'            => 'groups',
+            'mode'            => 'preview',
+            'keywords'        => array('fundraise','fundraiseup','supporters','donors'),
+          ));
+
+         acf_register_block_type([
+            'name'            => 'impact-map-cta',
+            'title'           => __('Impact Map + CTA'),
+            'description'     => __('Left embed (e.g., Fundraise Up map) + right CTA content and buttons.'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category'        => 'widgets',
+            'icon'            => 'location-alt',
+            'mode'            => 'preview',
+            'keywords'        => ['map','fundraise up','cta','donate','embed'],
+        ]);
+        
+          
         
         acf_register_block_type(
             array(

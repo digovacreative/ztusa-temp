@@ -35,8 +35,8 @@ $width_class = $width === 'half' ? 'is-half-md' : 'is-full';
 <div class="gutenberg__wrap">
   <section
     id="<?php echo esc_attr($block_id); ?>"
-    class="legacy-callout aos-item"
-    data-aos="fade-up"
+    class="legacy-callout"
+    
     style="<?php echo $style; ?>"
   >
     <div class="legacy-callout__inner <?php echo esc_attr($width_class); ?>">

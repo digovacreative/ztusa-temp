@@ -37,3 +37,4 @@ if(in_array($action, $allowed_actions)){
     else
         do_action('ZTRUST_AJAX_nopriv_'.$action);
 }
+

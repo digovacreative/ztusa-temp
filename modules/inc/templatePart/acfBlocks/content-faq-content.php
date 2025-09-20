@@ -21,7 +21,7 @@ $block_heading      = (string) get_field('block_heading');
         $q = get_sub_field('question');
         $a = get_sub_field('answer');
       ?>
-        <article class="aos-item" data-aos="fade-up">
+        <article>
           <button type="button" class="accordion-toggle" aria-expanded="false">
             <span class="accordion-title"><?php echo $q ? wp_kses_post($q) : ''; ?></span>
             <svg class="icon" viewBox="0 0 22 30" aria-hidden="true" focusable="false">
@@ -48,17 +48,11 @@ $block_heading      = (string) get_field('block_heading');
   if (!$root.length || !window.jQuery) return;
 
   $root.on('click', '.accordion-toggle', function(){
-    var $btn = $(this);
-    var $article = $btn.closest('article');
-    var $content = $article.find('.accordion-content').first();
+    var $btn     = $(this);
+    var $content = $btn.closest('article').find('.accordion-content').first();
     var expanded = $btn.attr('aria-expanded') === 'true';
 
-    // close others in this block
-    $root.find('.accordion-toggle[aria-expanded="true"]').not($btn)
-      .attr('aria-expanded','false')
-      .closest('article').find('.accordion-content').attr('hidden', true).slideUp(0);
-
-    // toggle current
+    // Toggle ONLY this item
     $btn.attr('aria-expanded', expanded ? 'false' : 'true');
     if (expanded) {
       $content.attr('hidden', true).slideUp('fast');

@@ -1,0 +1,224 @@
+{
+    "key": "group_gifts_supporters_01",
+    "title": "Gifts + Top Supporters",
+    "fields": [
+        {
+            "key": "field_gs_h_main",
+            "label": "Heading (main)",
+            "name": "heading_main",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "YOUR GIFTS IN",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gs_h_accent",
+            "label": "Heading (accent)",
+            "name": "heading_accent",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACTION",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gs_widget",
+            "label": "Fundraise Up Widget ID",
+            "name": "fu_widget_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "XRPGVJBE",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gs_slides",
+            "label": "Slides",
+            "name": "slides",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Add Slide",
+            "layout": "row",
+            "min": 1,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_gs_image",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_gs_slides"
+                },
+                {
+                    "key": "field_gs_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 1,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_gs_slides"
+                },
+                {
+                    "key": "field_gs_name",
+                    "label": "Name",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_gs_slides"
+                },
+                {
+                    "key": "field_gs_sub",
+                    "label": "Subline",
+                    "name": "subline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "e.g., Age 5",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_gs_slides"
+                },
+                {
+                    "key": "field_gs_flag",
+                    "label": "Flag",
+                    "name": "flag",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_gs_slides"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/fu-top-supporters"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758229217
+}

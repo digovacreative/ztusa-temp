@@ -1,0 +1,36 @@
+[
+    {
+      "key": "group_gifts_supporters_01",
+      "title": "Gifts + Top Supporters",
+      "fields": [
+        { "key": "field_gs_h_main",   "label": "Heading (main)",   "name": "heading_main",   "type": "text", "default_value": "YOUR GIFTS IN" },
+        { "key": "field_gs_h_accent", "label": "Heading (accent)", "name": "heading_accent", "type": "text", "default_value": "ACTION" },
+        { "key": "field_gs_widget",   "label": "Fundraise Up Widget ID", "name": "fu_widget_id", "type": "text", "default_value": "XRPGVJBE" },
+        {
+          "key": "field_gs_slides",
+          "label": "Slides",
+          "name": "slides",
+          "type": "repeater",
+          "button_label": "Add Slide",
+          "layout": "row",
+          "min": 1,
+          "sub_fields": [
+            { "key": "field_gs_image",  "label": "Image",  "name": "image",  "type": "image", "return_format": "id", "preview_size": "medium" },
+            { "key": "field_gs_quote",  "label": "Quote (rich)", "name": "quote", "type": "wysiwyg", "toolbar": "basic", "media_upload": 0 },
+            { "key": "field_gs_name",   "label": "Name",   "name": "name",   "type": "text" },
+            { "key": "field_gs_sub",    "label": "Subline", "name": "subline", "type": "text", "instructions": "e.g., Age 5" },
+            { "key": "field_gs_flag",   "label": "Flag",   "name": "flag",   "type": "image", "return_format": "id", "preview_size": "thumbnail" }
+          ]
+        }
+      ],
+      "location": [[{ "param": "block", "operator": "==", "value": "acf/gifts-supporters" }]],
+      "position": "normal",
+      "style": "default",
+      "label_placement": "top",
+      "instruction_placement": "label",
+      "active": true,
+      "show_in_rest": 0,
+      "modified": 1737222222
+    }
+  ]
+  

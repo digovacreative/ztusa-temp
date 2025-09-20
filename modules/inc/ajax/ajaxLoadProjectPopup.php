@@ -10,12 +10,9 @@ function load_project_function(){
                 echo '<div class="disabled_overlay"></div>';
             endif;
 
-                $product_id = $_POST['project_id'];
-                if(isset($_POST['overlay'])):
-                    $overlay_option = $_POST['overlay'];
-                else:
-                    $overlay_option = TRUE;
-                endif;
+            $product_id = isset($_POST['project_id']) ? (int) $_POST['project_id'] : 0;
+            $overlay_option = isset($_POST['overlay']) ? (bool) $_POST['overlay'] : true;
+            
 
                 $random_string = random_string_generator();
 
@@ -149,19 +146,25 @@ function load_project_function(){
                                             <div class="summary entry-summary  <?php if(get_field('enable_split_donation_calculator')): echo 'has_split_donation'; endif; ?>">
                                                 
                                                 <div class="package__options">
-                                                    <ul class="<?php $option_count = count(get_field('product_options')); ?>package__listing">
-                                                    <?php while(has_sub_field('product_options')): ?>
-                                                        <?php if(get_sub_field('amount')): ?>
-                                                        <li class="package__listing_item item_<?php echo $option_count; ?>" data-project-id="<?php echo($product_id); ?>" data-value="<?php the_sub_field('amount'); ?>">
-                                                        <span class="inactive"></span> 
-                                                        <strong>
-                                                            <em><?= get_woocommerce_currency_symbol() ?><?php the_sub_field('amount'); ?></em>
-                                                            <small><?php the_sub_field('text'); ?></small>
-                                                        </strong>
-                                                        </li>
+                                                <?php $option_count = count( (array) get_field('product_options') ); ?>
+                                                <?php if ( have_rows('product_options') ): ?>
+                                                    <ul class="package__listing">
+                                                        <?php while ( have_rows('product_options') ) : the_row(); ?>
+                                                        <?php if ( get_sub_field('amount') ): ?>
+                                                            <li class="package__listing_item"
+                                                                data-project-id="<?php echo esc_attr($product_id); ?>"
+                                                                data-value="<?php echo esc_attr( get_sub_field('amount') ); ?>">
+                                                            <span class="inactive"></span>
+                                                            <strong>
+                                                                <em><?= get_woocommerce_currency_symbol() ?><?php the_sub_field('amount'); ?></em>
+                                                                <small><?php the_sub_field('text'); ?></small>
+                                                            </strong>
+                                                            </li>
                                                         <?php endif; ?>
-                                                    <?php endwhile; ?>
+                                                        <?php endwhile; ?>
                                                     </ul>
+                                                    <?php endif; ?>
+
                                                 </div>
                                                 <?php
                                                     /**

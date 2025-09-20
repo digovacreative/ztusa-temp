@@ -1,12 +1,9 @@
-<?php
-
-$enable_gutenberg_wrap = get_field('enable_gutenberg_wrap');
-get_header(); ?>
-<div class="<?php if($enable_gutenberg_wrap): echo 'gutenberg__wrap'; endif;?>">
+<?php get_header(); ?>
+<div class="gutenberg__wrap">
 	<div class="continue_shopping_popup" id="continue_shopping_popup"></div>
 	</div>
 	<?php //include_once('modules/flexible-content/flexible-fields.php'); ?>
-	<div class="content__wrapper <?php if($enable_gutenberg_wrap): echo 'gutenberg__wrap';  endif;?>">
+	<div class="content__wrapper gutenberg__wrap">
 	<?php while(have_posts()) : the_post(); ?>
 		<?php the_content(); ?>
 		<?php 
@@ -121,4 +118,12 @@ get_header(); ?>
 <script type="text/javascript">
 	jQuery(".wp-block-gallery .blocks-gallery-item a").fancybox().attr('data-fancybox', 'gallery');
 </script>
+
+		<script>(function(w,d,s,n,a){if(!w[n]){var l='call,catch,on,once,set,then,track,openCheckout'
+				.split(','),i,o=function(n){return'function'==typeof n?o.l.push([arguments])&&o
+				:function(){return o.l.push([n,arguments])&&o}},t=d.getElementsByTagName(s)[0],
+				j=d.createElement(s);j.async=!0;j.src='https://cdn.fundraiseup.com/widget/'+a+'';
+				t.parentNode.insertBefore(j,t);o.s=Date.now();o.v=5;o.h=w.location.href;o.l=[];
+				for(i=0;i<8;i++)o[l[i]]=o(l[i]);w[n]=o}
+				})(window,document,'script','FundraiseUp','ASFPFBAA');</script>
 <?php get_footer(); ?>

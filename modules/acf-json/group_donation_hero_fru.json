@@ -1,0 +1,263 @@
+{
+    "key": "group_donation_hero_fru",
+    "title": "Donation Hero (Fundraise Up)",
+    "fields": [
+        {
+            "key": "field_dh_bg",
+            "label": "Background Image",
+            "name": "bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_dh_bg_mobile",
+            "label": "Mobile Background Image",
+            "name": "bg_image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional mobile-specific background; falls back to desktop if empty.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_dh_bg_focal",
+            "label": "Background Focal Point",
+            "name": "bg_focal",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "CSS background-position (e.g. '40% 25%' or 'center right').",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "center center",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_overlay",
+            "label": "Overlay Color",
+            "name": "overlay_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#00000073",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_dh_hmain",
+            "label": "Heading (main)",
+            "name": "heading_main",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Every Child Deserves a Chance to",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_haccent",
+            "label": "Heading (accent)",
+            "name": "heading_accent",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Learn",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_widget",
+            "label": "Fundraise Up Widget ID",
+            "name": "fu_widget_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Value after # in your Fundraise Up trigger link (e.g. XTGVSAJV).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "XVGCLLYQ",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_minheight",
+            "label": "Minimum Height (px)",
+            "name": "min_height",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 560,
+            "min": 360,
+            "step": 10,
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_content_w",
+            "label": "Donation Box Column Width (px)",
+            "name": "content_width",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 560,
+            "min": 320,
+            "step": 10,
+            "max": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dh_align",
+            "label": "Content Alignment",
+            "name": "content_align",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "center": "Centered",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "ui": 1,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_dh_mobile_btn",
+            "label": "Mobile Button",
+            "name": "mobile_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Shown fixed at the bottom of the screen on mobile. (Fundraise Up widget still renders; this is an extra CTA.)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/donation-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758387094
+}

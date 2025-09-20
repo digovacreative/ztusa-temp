@@ -1,0 +1,222 @@
+{
+  "key": "group_donation_hero_woo_v2",
+  "title": "Block: Donation Hero \u2013 Woo (Carousel + Quick Donate)",
+  "fields": [
+    {
+      "key": "field_dhw_banner_style",
+      "label": "Banner style (class)",
+      "name": "banner_style",
+      "type": "select",
+      "instructions": "Optional CSS class appended to the block wrapper.",
+      "choices": {
+        "medium": "Medium"
+      },
+      "default_value": "",
+      "allow_null": 1,
+      "multiple": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      }
+    },
+    {
+      "key": "field_dhw_banner_items",
+      "label": "Banner items",
+      "name": "banner_items",
+      "type": "repeater",
+      "instructions": "Slides for the hero carousel.",
+      "collapsed": "field_dhw_banner_heading",
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "Add Slide",
+      "sub_fields": [
+        {
+          "key": "field_dhw_banner_image",
+          "label": "Desktop image",
+          "name": "banner_image",
+          "type": "image",
+          "return_format": "array",
+          "preview_size": "medium",
+          "library": "all",
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_banner_image_mobile",
+          "label": "Mobile image (optional)",
+          "name": "banner_image_mobile",
+          "type": "image",
+          "return_format": "array",
+          "preview_size": "medium",
+          "library": "all",
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_text_position",
+          "label": "Text position",
+          "name": "text_position",
+          "type": "button_group",
+          "choices": {
+            "left": "Left",
+            "center": "Center",
+            "right": "Right"
+          },
+          "default_value": "left",
+          "layout": "horizontal",
+          "return_format": "value",
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_banner_small_heading",
+          "label": "Small heading",
+          "name": "banner_small_heading",
+          "type": "text",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_banner_heading",
+          "label": "Heading",
+          "name": "banner_heading",
+          "type": "text",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_banner_text",
+          "label": "Subheading",
+          "name": "banner_text",
+          "type": "text",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_button_link",
+          "label": "Button link",
+          "name": "button_link",
+          "type": "link",
+          "return_format": "array",
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_dhw_button_label",
+          "label": "Button label (override)",
+          "name": "button_label",
+          "type": "text",
+          "instructions": "If empty, the Link field\u2019s title is used.",
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_dhw_enable_donation_box",
+      "label": "Enable quick-donation box",
+      "name": "enable_donation_box",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0,
+      "wrapper": {
+        "width": "30",
+        "class": "",
+        "id": ""
+      }
+    },
+    {
+      "key": "field_dhw_project_select",
+      "label": "Donation projects (Woo products)",
+      "name": "project_select",
+      "type": "relationship",
+      "instructions": "Choose 1+ WooCommerce products to inject into the quick donate area.",
+      "post_type": [
+        "product"
+      ],
+      "filters": [
+        "search",
+        "taxonomy"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "id",
+      "min": 0,
+      "max": 0,
+      "wrapper": {
+        "width": "70",
+        "class": "",
+        "id": ""
+      }
+    },
+    {
+      "key": "field_dhw_homepage_donation_heading",
+      "label": "Quick-donation heading",
+      "name": "homepage_donation_heading",
+      "type": "text",
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      }
+    },
+    {
+      "key": "field_dhw_mobile_text",
+      "label": "Mobile text (only shows on mobile)",
+      "name": "mobile_text",
+      "type": "wysiwyg",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "delay": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/donation-hero-woo"
+      }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_rest": 0
+}

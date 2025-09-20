@@ -1,0 +1,158 @@
+{
+    "key": "group_impact_map_cta_001",
+    "title": "Impact Map + CTA",
+    "fields": [
+        {
+            "key": "field_68cc8dcc4deda",
+            "label": "Widget ID",
+            "name": "widget_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "XTGVSAJV",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_intro_text",
+            "label": "Intro (italic)",
+            "name": "intro_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Education is the best sadaqa jariyah.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_title_main",
+            "label": "Heading",
+            "name": "title_main",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Want to make your gift go further?",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_title_accent",
+            "label": "Heading (accent)",
+            "name": "title_accent",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Final phrase that appears teal & underlined.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "all year round.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_body_text",
+            "label": "Body (optional)",
+            "name": "body_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_btn_one_time",
+            "label": "Button – One-time",
+            "name": "btn_one_time",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_btn_monthly",
+            "label": "Button – Monthly",
+            "name": "btn_monthly",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/impact-map-cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758236122
+}
