@@ -36,8 +36,10 @@ if (!$cards || !is_array($cards)) { if (is_admin()) echo '<p><em>Add some cards.
   <ul class="project-cards-grid__list" role="list">
     <?php foreach ($cards as $row):
       $type = $row['type'] ?? 'product'; // 'product' | 'link'
-  // ✅ Handle icon as ID/array/URL
-  $icon_url = dm_media_to_url($row['icon'] ?? null, 'thumbnail');
+      //   Handle icon as ID/array/URL
+      $icon_url = dm_media_to_url($row['icon'] ?? null, 'thumbnail');
+      $image_url = dm_media_to_url($row['image'] ?? null, 'large');
+
       // Common fields
       $icon_id   = isset($row['icon']) ? (int)$row['icon'] : 0;
       $icon_url  = $icon_id ? wp_get_attachment_image_url($icon_id, 'thumbnail') : '';
