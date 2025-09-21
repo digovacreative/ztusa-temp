@@ -33,14 +33,35 @@ add_filter('xmlrpc_enabled', '__return_false');
 
 
 //Enque Admin Fontawesome CSS
-function FontAwesome_icons() {
-    $cssUrl = get_stylesheet_directory_uri() . '/assets/fonts/fontawesome/fontawesome-all.min.css';
-    echo '<link href="'.$cssUrl.'"  rel="stylesheet">';
+// Admin CSS (Font Awesome + dashboard.css)
+add_action('admin_enqueue_scripts', function () {
+  // If these files live in the CHILD theme. If they’re in the parent, use get_template_directory_* instead.
+  $dir = get_stylesheet_directory();
+  $uri = get_stylesheet_directory_uri();
 
-    $acfStyleCSS = get_stylesheet_directory_uri() . '/assets/style/css/dashboard.css';
-    echo '<link href="'.$acfStyleCSS.'"  rel="stylesheet">';
-}
-add_action('admin_head', 'FontAwesome_icons');
+  // Font Awesome
+  $fa_rel = '/assets/fonts/fontawesome/fontawesome-all.min.css'; // check exact path + case (css vs CSS)
+  if (file_exists($dir . $fa_rel)) {
+      wp_enqueue_style(
+          'zt-admin-fa',
+          $uri . $fa_rel,
+          [],
+          filemtime($dir . $fa_rel) // cache-bust on change
+      );
+  }
+
+  // Dashboard styles
+  $dash_rel = '/assets/style/css/dashboard.css'; // verify this path exists
+  if (file_exists($dir . $dash_rel)) {
+      wp_enqueue_style(
+          'zt-admin-dashboard',
+          $uri . $dash_rel,
+          ['zt-admin-fa'],           // optional dependency
+          filemtime($dir . $dash_rel)
+      );
+  }
+});
+
 //add_action('wp_head', 'FontAwesome_icons');
 
 

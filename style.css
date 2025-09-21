@@ -25386,7 +25386,7 @@ html.gutenberg__wrap {
   }
 }
 .landing-hero.has-bg {
-  background: radial-gradient(80% 80% at 30% 20%, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.5)), var(--lh-bg) center/cover no-repeat;
+  background: radial-gradient(80% 80% at 30% 20%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), var(--lh-bg) center/cover no-repeat;
   color: #fff;
 }
 .landing-hero .add__to_cart_wrap table {

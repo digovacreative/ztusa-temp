@@ -1579,7 +1579,7 @@ $teal-2: #0f8a8b;
   position: relative;
   &.has-bg {
     background:
-      radial-gradient(80% 80% at 30% 20%, rgba(0,0,0,.18), rgba(0,0,0,.5)),
+      radial-gradient(80% 80% at 30% 20%, rgba(0,0,0,0), rgba(0,0,0,0)),
       var(--lh-bg) center/cover no-repeat;
     color: #fff;
   }
