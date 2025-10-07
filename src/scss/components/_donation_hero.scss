@@ -1,0 +1,160 @@
+@use '../abstracts/variables' as vars;
+
+/* Donation Hero (Fundraise Up) */
+.donation-hero {
+    --dh-bg: none;
+    --dh-bg-mobile: none;
+    /* NEW */
+    --dh-overlay: rgba(0, 0, 0, .45);
+    --dh-min-h: 560px;
+    --dh-content-w: 560px;
+    --dh-text: #fff;
+  
+    position: relative;
+    min-height: var(--dh-min-h);
+    overflow: hidden;
+    color: var(--dh-text);
+  
+    &__bg {
+      position: absolute;
+      inset: 0;
+      background-image: var(--dh-bg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: var(--dh-bg-pos, center);
+      transform: scale(1.02);
+    }
+  
+    /* Use the mobile background image on small screens */
+    @media (max-width: 767.98px) {
+      height: 560px;
+  
+      &__bg {
+        background-image: var(--dh-bg-mobile);
+      }
+    }
+  
+    &__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      height: 100%;
+      margin: 0 auto !important;
+      padding: clamp(24px, 4vw, 48px) 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(16px, 3vw, 32px);
+  
+      @media (min-width: 992px) {
+        grid-template-columns: 1fr minmax(320px, var(--dh-content-w));
+        align-items: center;
+        column-gap: clamp(24px, 4vw, 48px);
+      }
+    }
+  
+    &__heading {
+      font-weight: 800;
+      line-height: 1.05;
+      font-size: 42px !important;
+      margin: 0 0 30px;
+      text-align: center;
+      color: #fff !important;
+  
+      .accent {
+        position: relative;
+        white-space: nowrap;
+        color: #fff;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: .08em;
+          height: .15em;
+          background: #c21f4f;
+          z-index: -1;
+          border-radius: 999px;
+        }
+      }
+    }
+  
+    /* FRU box — visible desktop/tablet, hidden on mobile */
+    &__box {
+      padding: 12px;
+      display: grid;
+      align-content: start;
+  
+      a[href^="#"] {
+        display: block;
+      }
+    }
+  
+    @media (max-width: 767.98px) {
+      .donation-hero__box {
+        display: none;
+      }
+  
+      /* hide widget on mobile */
+    }
+  
+    .donation-hero__box {
+      iframe {
+        margin: 0 auto;
+      }
+    }
+  
+    /* Mobile bottom CTA button (fixed) */
+    &__mobile-cta {
+      display: none;
+  
+      @media (max-width: 767.98px) {
+        display: block;
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 15px;
+        z-index: 50;
+        margin: 0;
+      }
+  
+      .dh-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 16px 20px;
+        font-weight: 800;
+        border-radius: 12px;
+        color: #fff;
+        background: #2b6fe3;
+        /* adjust to brand if needed */
+        text-decoration: none;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+      }
+    }
+  
+    /* Layout modifiers retained */
+    &--center .donation-hero__inner {
+      @media (min-width: 992px) {
+        grid-template-columns: minmax(320px, var(--dh-content-w));
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  
+    &--right .donation-hero__inner {
+      @media (min-width: 992px) {
+        grid-template-columns: minmax(320px, var(--dh-content-w)) 1fr;
+  
+        .donation-hero__txt {
+          order: 2;
+          text-align: right;
+        }
+  
+        .donation-hero__box {
+          order: 1;
+        }
+      }
+    }
+  }
+  

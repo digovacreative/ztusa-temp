@@ -70,8 +70,8 @@
                     "aria-label": "",
                     "type": "button_group",
                     "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
+                    "required": 0,
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -79,12 +79,43 @@
                     },
                     "choices": {
                         "product": "Woo Product",
-                        "link": "Manual Link"
+                        "link": "Manual Link",
+                        "Projects": "Projects"
                     },
                     "default_value": "product",
                     "return_format": "value",
-                    "layout": "horizontal",
                     "allow_null": 0,
+                    "allow_in_bindings": 1,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_cg_cards"
+                },
+                {
+                    "key": "field_cg_title_override",
+                    "label": "Title (override)",
+                    "name": "title_override",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional – overrides product title",
+                    "required": false,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_cg_type",
+                                "operator": "==",
+                                "value": "product"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
                     "parent_repeater": "field_cg_cards"
                 },
                 {
@@ -121,35 +152,6 @@
                     "parent_repeater": "field_cg_cards"
                 },
                 {
-                    "key": "field_cg_title_override",
-                    "label": "Title (override)",
-                    "name": "title_override",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Optional – overrides product title",
-                    "required": false,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_cg_type",
-                                "operator": "==",
-                                "value": "product"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_cg_cards"
-                },
-                {
                     "key": "field_cg_link",
                     "label": "Link",
                     "name": "link",
@@ -175,19 +177,59 @@
                     "parent_repeater": "field_cg_cards"
                 },
                 {
+                    "key": "field_68e2e0ccda3f6",
+                    "label": "Donation Projects",
+                    "name": "donation_projects",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_cg_type",
+                                "operator": "==",
+                                "value": "Projects"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "product"
+                    ],
+                    "post_status": "",
+                    "taxonomy": "",
+                    "filters": [
+                        "search",
+                        "taxonomy"
+                    ],
+                    "return_format": "id",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "elements": "",
+                    "bidirectional": 0,
+                    "bidirectional_target": [],
+                    "parent_repeater": "field_cg_cards"
+                },
+                {
                     "key": "field_cg_title",
                     "label": "Manual Title",
                     "name": "title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": false,
+                    "required": 0,
                     "conditional_logic": [
                         [
                             {
                                 "field": "field_cg_type",
-                                "operator": "==",
-                                "value": "link"
+                                "operator": "!=",
+                                "value": "product"
                             }
                         ]
                     ],
@@ -198,6 +240,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -293,9 +336,9 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758146330
+    "modified": 1759700063
 }

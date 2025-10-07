@@ -1,32 +1,59 @@
 <?php
 /**
- * Block: Impact Stats (animated)
+ * Block: Impact Stats (animated) — with optional background image
  */
 defined('ABSPATH') || exit;
 
 $block_id = 'impact-stats-' . wp_unique_id();
 
 /** Headline & copy */
-$headline      = get_field('headline');             // e.g. A MOVEMENT BIGGER THAN ANY ONE GIFT
-$lede_top      = get_field('lede_top');             // WYSIWYG or text
-$lede_bottom   = get_field('lede_bottom');          // WYSIWYG or text
+$headline      = get_field('headline');
+$lede_top      = get_field('lede_top');
+$lede_bottom   = get_field('lede_bottom');
 
-/** Gradient (same fields as before) */
+/** Gradient (fallback) */
 $start = get_field('gradient_start') ?: '#0f8a8b';
 $end   = get_field('gradient_end')   ?: '#1fb0a5';
-$angle = (int) (get_field('gradient_angle') ?: 90); // 90deg = left→right
+$angle = (int) (get_field('gradient_angle') ?: 90);
+
+/** Optional background image */
+$bg_id      = (int) (get_field('background_image') ?: 0);
+$bg_m_id    = (int) (get_field('background_image_mobile') ?: 0);
+$bg_url     = $bg_id   ? wp_get_attachment_image_url($bg_id, 'full') : '';
+$bg_m_url   = $bg_m_id ? wp_get_attachment_image_url($bg_m_id, 'full') : '';
+$bg_pos     = (string) (get_field('bg_focal') ?: 'center center');
+$bg_overlay = (string) (get_field('bg_overlay') ?: 'rgba(0,0,0,.35)');
+
+$has_image  = (bool) $bg_url;
 
 /** Numbers */
-$items         = get_field('stats');                // repeater rows
+$items         = get_field('stats');
 $cols_desktop  = (int) (get_field('columns_desktop') ?: 3);
 $duration_ms   = (int) (get_field('anim_duration') ?: 1200);
 
+/** CSS vars */
 $style = sprintf(
-  '--grad-start:%s;--grad-end:%s;--grad-angle:%sdeg;--anim-duration:%sms;',
-  esc_attr($start), esc_attr($end), esc_attr($angle), esc_attr($duration_ms)
+  '--grad-start:%s;--grad-end:%s;--grad-angle:%sdeg;--anim-duration:%sms;%s%s%s%s',
+  esc_attr($start),
+  esc_attr($end),
+  esc_attr($angle),
+  esc_attr($duration_ms),
+  $has_image ? '--bg:' . sprintf('url(%s);', esc_url($bg_url)) : '',
+  $has_image && $bg_m_url ? '--bg-mobile:' . sprintf('url(%s);', esc_url($bg_m_url)) : '',
+  $has_image ? '--bg-pos:' . esc_attr($bg_pos) . ';' : '',
+  $has_image ? '--bg-overlay:' . esc_attr($bg_overlay) . ';' : ''
 );
 ?>
-<section id="<?php echo esc_attr($block_id); ?>" class="impact-stats" style="<?php echo $style; ?>">
+<section
+  id="<?php echo esc_attr($block_id); ?>"
+  class="impact-stats<?php echo $has_image ? ' has-image' : ''; ?>"
+  style="<?php echo $style; ?>"
+>
+  <?php if ($has_image): ?>
+    <div class="impact-stats__bg" aria-hidden="true"></div>
+    <!-- <div class="impact-stats__overlay" aria-hidden="true"></div> -->
+  <?php endif; ?>
+
   <div class="impact-stats__inner">
     <?php if ($headline): ?>
       <h2 class="impact-stats__headline"><?php echo esc_html($headline); ?></h2>
@@ -46,7 +73,7 @@ $style = sprintf(
           $prefix  = trim((string)($row['prefix'] ?? ''));
           $number  = (int) ($row['number'] ?? 0);
           $suffix  = trim((string)($row['suffix'] ?? ''));
-          $use_sep = !empty($row['thousands_sep']); // true/false
+          $use_sep = !empty($row['thousands_sep']);
           $label1  = $row['label_line_1'] ?? '';
           $label2  = $row['label_line_2'] ?? '';
         ?>
@@ -56,10 +83,7 @@ $style = sprintf(
                  data-prefix="<?php echo esc_attr($prefix); ?>"
                  data-suffix="<?php echo esc_attr($suffix); ?>"
                  data-sep="<?php echo $use_sep ? '1' : '0'; ?>">
-              <?php
-                // initial (non-animated) fallback for no-JS
-                echo esc_html($prefix . ($use_sep ? number_format($number) : $number) . $suffix);
-              ?>
+              <?php echo esc_html($prefix . ($use_sep ? number_format($number) : $number) . $suffix); ?>
             </div>
             <div class="impact-stats__label">
               <?php if ($label1): ?><div class="l1"><?php echo esc_html($label1); ?></div><?php endif; ?>
@@ -70,12 +94,10 @@ $style = sprintf(
       </ul>
     <?php endif; ?>
   </div>
-
- 
 </section>
+
 <script>
 (function () {
-  // EASING + HELPERS
   const easeOutQuad = t => t * (2 - t);
   const format = (n, sep) => sep ? Number(n).toLocaleString() : String(n);
 
@@ -85,7 +107,6 @@ $style = sprintf(
     const suffix = el.getAttribute('data-suffix') || '';
     const useSep = el.getAttribute('data-sep') === '1';
 
-    // Respect reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       el.textContent = prefix + format(Math.round(target), useSep) + suffix;
       return;
@@ -105,8 +126,6 @@ $style = sprintf(
   function initCountUps(root = document, opts = {}) {
     const values = root.querySelectorAll('.impact-stats__value');
     if (!values.length) return;
-
-    // Default duration (ms); element can override via CSS var: --anim-duration
     const defaultDur = opts.duration || 1200;
 
     if (!('IntersectionObserver' in window)) {
@@ -131,15 +150,7 @@ $style = sprintf(
     values.forEach(el => io.observe(el));
   }
 
-  // Init on page load
   if (document.readyState !== 'loading') initCountUps();
   else document.addEventListener('DOMContentLoaded', () => initCountUps());
-
-  // Re-init inside ACF editor previews
-  if (window.acf && window.acf.addAction) {
-    window.acf.addAction('render_block_preview', $el => {
-      if ($el && $el[0]) initCountUps($el[0]);
-    });
-  }
 })();
 </script>

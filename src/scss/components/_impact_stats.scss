@@ -1,0 +1,193 @@
+@use '../abstracts/variables' as vars;
+
+// Impact Stats
+
+.impact-stats {
+    /* same gradient system as your other blocks */
+    background: linear-gradient(var(--grad-angle, 90deg),
+        var(--grad-start, #0f8a8b), var(--grad-end, #1fb0a5));
+    color: vars.$white;
+    text-align: center;
+    padding: 4rem 2rem !important;
+  
+    &__inner {
+      max-width: 1200px;
+      margin: 0 auto !important;
+    }
+  
+    &__headline {
+      margin: 0 0 .4em;
+      font-weight: 800;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.15;
+      color: vars.$white;
+    }
+  
+    &__lede {
+      margin: 0 auto;
+      max-width: 960px;
+      font-size: 36px !important;
+      line-height: 1.65;
+  
+      &--top {
+        opacity: .95;
+      }
+  
+      &--bottom {
+        font-weight: 600 !important;
+        margin-bottom: 2rem !important;
+      }
+    }
+  
+    &__grid {
+      margin-top: clamp(20px, 4vw, 40px);
+      display: grid;
+      gap: clamp(16px, 3vw, 28px);
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+  
+      @media (min-width: 900px) {
+        &.impact-stats__grid--cols-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+  
+        &.impact-stats__grid--cols-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+  
+        &.impact-stats__grid--cols-4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    }
+  
+    &__item {
+      list-style: none;
+      position: relative;
+      padding: clamp(10px, 2vw, 14px) clamp(8px, 2vw, 14px);
+  
+      /* vertical dividers on desktop */
+      @media (min-width: 900px) {
+        &:not(:nth-child(3n+1)) {
+          border-left: 1px solid rgba(255, 255, 255, .35);
+        }
+      }
+    }
+
+    p {
+      font-size: 18px !important;
+      color: #fff !important;
+      padding: 0 !important;
+      margin-bottom: 1rem !important;
+
+    }
+  
+    &__value {
+      font-weight: 800;
+      font-size: 50px !important;
+      letter-spacing: .5px;
+      color: #fff !important;
+    }
+  
+    &__label {
+      // margin-top: .45em;
+
+      @media (max-width: 768px) {
+        padding-bottom: 1rem !important;
+        border-bottom: 1px solid #fff !important;
+
+      }
+  
+      .l1 {
+        font-weight: 600;
+        opacity: .95;
+        color: #fff !important;
+      } 
+  
+      .l2 {
+        margin-top: .6em;
+        padding-top: .6em;
+        border-top: 1px solid rgba(255, 255, 255, .35);
+        opacity: .95;
+      }
+    }
+  }
+  
+  .map-cta {
+    &__inner { max-width: 1200px; margin: 0 auto; }
+  
+    &__grid {
+      display: grid;
+      gap: clamp(16px, 3vw, 32px);
+  
+      /* Mobile: content first, map last */
+      grid-template-areas:
+        "content"
+        "map";
+    }
+  
+    &__content { grid-area: content; }
+    &__embed   { grid-area: map; }
+  
+    /* Desktop/tablet up: two columns, map first */
+    @media (min-width: 900px) {
+      &__grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "map content";
+        align-items: stretch;
+      }
+    }
+  }
+  
+
+  /* Impact Stats: background image support (gradient remains fallback) */
+.impact-stats {
+  position: relative;
+  overflow: hidden;
+
+  /* existing gradient fallback */
+  background: linear-gradient(var(--grad-angle, 90deg),
+              var(--grad-start, #0f8a8b),
+              var(--grad-end, #1fb0a5));
+
+  &.has-image {
+    background: none; /* disable gradient when image provided */
+
+    .impact-stats__bg {
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg);
+      background-size: cover;
+      background-position: var(--bg-pos, center);
+      background-repeat: no-repeat;
+      transform: scale(1.01);
+      z-index: 0;
+    }
+
+    .impact-stats__overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-overlay, rgba(0,0,0,.35));
+      z-index: 1;
+    }
+
+    .impact-stats__inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      margin-bottom: 4rem !important;
+      .impact-stats__headline,
+      .impact-stats__lede {
+        color: #fff;
+        font-weight: bold!important;
+        display: inline-block !important;
+      }
+    }
+  }
+
+  /* mobile: prefer mobile bg if provided */
+  @media (max-width: 767.98px) {
+    &.has-image .impact-stats__bg {
+      background-image: var(--bg-mobile, var(--bg));
+    }
+  }
+}

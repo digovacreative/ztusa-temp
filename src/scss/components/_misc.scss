@@ -1,0 +1,22 @@
+
+@use '../abstracts/variables' as vars;
+
+.new-donate-button{
+    padding: 5px 30px !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  #order_review{
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  .package__listing{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }

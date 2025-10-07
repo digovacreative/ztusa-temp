@@ -1,0 +1,214 @@
+@use '../abstracts/variables' as vars;
+
+// Top Supporters — grid layout (no flex columns)
+.gifts-supporters {
+    margin: vars.$spacer * 2 0;
+  
+    /* container */
+    &__inner {
+      max-width: 1200px;
+      margin: 0 auto !important;
+      padding: 20px;
+    }
+  
+    /* heading */
+    &__heading {
+      text-align: center;
+      font-weight: 800;
+      margin: 0 0 24px;
+      font-size: vars.$font-size-h2 !important;
+  
+      .accent {
+        color: #18a6a5;
+      }
+    }
+  
+    /* layout: stack on mobile, 2-column grid on desktop (≈60/40) */
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+  
+      @media (min-width: 1024px) {
+        grid-template-columns: 3fr 2fr; // ~60/40
+        gap: 20px;
+      }
+    }
+  
+    /* columns are just blocks now */
+    &__left,
+    &__right {
+      display: block;
+      min-width: 0;
+      height: 100%;
+    }
+  
+    /* RIGHT: Fundraise Up embed panel */
+    &__panel {
+      // border: 2px solid #e5e7eb;
+      // background: #fff;
+      // border-radius: 12px;
+      // padding: 16px;
+      overflow: hidden;
+      height: 100%;
+  
+      >* {
+        display: block;
+        height: 100%;
+      }
+  
+      iframe {
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  
+    /* LEFT: slider + cards (Slick, but NO flex) */
+    .fu-testimonial-slider {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+    }
+  
+    /* Slick internals as blocks — show exactly 1 slide, clip overflow */
+    .fu-testimonial-slider {
+      margin-bottom: vars.$spacer;
+  
+      .slick-list {
+        overflow: hidden !important;
+        width: 100%;
+        min-width: 0;
+      }
+  
+      .slick-track {
+        display: block !important; // not flex
+        width: 100%;
+        min-width: 0;
+        transform: translate3d(0, 0, 0); // prevent sub-pixel jitter
+      }
+  
+      .slick-slide {
+        display: block; // not flex
+        float: left; // Slick’s classic layout
+        height: auto;
+        overflow: hidden;
+        margin-bottom: 40px;
+      }
+    }
+  
+    /* Card */
+    .fu-card {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+      padding: 18px;
+      height: 100%;
+    }
+  
+    .fu-card__avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, .1);
+      margin: 0 auto;
+      @media (min-width: 769px) {
+        margin: 6px 6px 12px;
+      }
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  
+    .fu-card__body {
+      padding: 0 6px 6px;
+    }
+  
+    .fu-card__quote-mark {
+      font-size: 60px;
+      line-height: 1;
+      color: #000;
+    }
+  
+    .fu-card__quote {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #111;
+    }
+  
+    .fu-card__meta {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid #e5e7eb;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+    }
+  
+    .fu-card__name {
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+  
+    .fu-card__sub {
+      color: #18a6a5;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  
+    .fu-card__flag {
+      width: 80px;
+      height: auto;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  
+    /* Media safety */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .slick-prev,
+    .slick-next {
+      position: absolute;
+      top: auto;
+      bottom: 0 !important;
+      height: 30px;
+      width: 30px;
+      background-color: vars.$teal-2;
+      border-radius: 50%;
+      &:hover,
+      &:focus {
+        background-color: vars.$teal-2;
+      }
+  
+    }
+  
+    .slick-prev {
+      left: 0;
+  
+    }
+  
+    .slick-next {
+      right: 0;
+    }
+  
+  }
+   

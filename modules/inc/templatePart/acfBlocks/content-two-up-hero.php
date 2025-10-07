@@ -1,24 +1,38 @@
 <?php
 /**
- * Block: Two-Up Hero (2-in-1)
+ * Block: Two-Up Hero (2-in-1) — popup only if donation_projects set
  */
 defined('ABSPATH') || exit;
 
 $block_id   = 'two-up-hero-' . wp_unique_id();
-$layout     = get_field('layout') ?: 'single';      // single|collage
+$layout     = get_field('layout') ?: 'single';
 $accent     = get_field('accent_color') ?: '#18a6a5';
 $text_color = get_field('text_color') ?: '#111';
 
-$btn        = get_field('button_link');             // ACF link (array)
-$btn_url    = is_array($btn) && !empty($btn['url']) ? esc_url($btn['url']) : '';
-$btn_label  = is_array($btn) && $btn['title'] !== '' ? $btn['title'] : 'Donate Now';
-$btn_target = is_array($btn) && !empty($btn['target']) ? esc_attr($btn['target']) : '_self';
+$btn        = get_field('button_link');
+$btn_url    = (is_array($btn) && !empty($btn['url']))   ? esc_url($btn['url'])   : '';
+$btn_label  = (is_array($btn) && ($btn['title'] ?? '') !== '' ) ? $btn['title']  : 'Donate Now';
+$btn_target = (is_array($btn) && !empty($btn['target'])) ? esc_attr($btn['target']) : '_self';
 
-$h_top      = get_field('heading_top');             // e.g. WHY YOUR
-$h_main     = get_field('heading_main');            // e.g. GIFT
-$h_accent   = get_field('heading_accent');          // e.g. MATTERS
-
+$h_top      = (string) get_field('heading_top');
+$h_main     = (string) get_field('heading_main');
+$h_accent   = (string) get_field('heading_accent');
 $body       = get_field('body');
+
+/* Resolve popup product ID robustly */
+$popup_product_id = 0;
+$rel = get_field('donation_projects');
+
+if (is_array($rel) && !empty($rel)) {
+  $first = $rel[0];
+  if (is_object($first) && isset($first->ID)) {
+    $popup_product_id = (int) $first->ID;          // Post Object
+  } elseif (is_array($first) && !empty($first['ID'])) {
+    $popup_product_id = (int) $first['ID'];        // Array with ID
+  } elseif (is_numeric($first)) {
+    $popup_product_id = (int) $first;              // Plain ID
+  }
+}
 
 $vars = sprintf('--accent:%s;--text:%s;', esc_attr($accent), esc_attr($text_color));
 ?>
@@ -28,7 +42,7 @@ $vars = sprintf('--accent:%s;--text:%s;', esc_attr($accent), esc_attr($text_colo
       <?php if ($layout === 'single'): ?>
         <?php
         $img_id   = (int) (get_field('image_main') ?: 0);
-        $shape    = get_field('image_shape') ?: 'circle'; // circle|rounded|square
+        $shape    = get_field('image_shape') ?: 'circle';
         $img_url  = $img_id ? wp_get_attachment_image_url($img_id, 'large') : '';
         $shape_cls = 'is-' . $shape;
         ?>
@@ -37,10 +51,9 @@ $vars = sprintf('--accent:%s;--text:%s;', esc_attr($accent), esc_attr($text_colo
             <img src="<?php echo esc_url($img_url); ?>" alt="" loading="lazy">
           </div>
         <?php endif; ?>
-
-      <?php else: // collage ?>
+      <?php else: ?>
         <?php
-        $g = get_field('collage'); // array of up to 4 image IDs
+        $g = get_field('collage');
         $g = is_array($g) ? array_slice(array_values(array_filter($g)), 0, 4) : [];
         ?>
         <?php if (!empty($g)): ?>
@@ -70,12 +83,23 @@ $vars = sprintf('--accent:%s;--text:%s;', esc_attr($accent), esc_attr($text_colo
         <div class="two-up-hero__body"><?php echo wp_kses_post($body); ?></div>
       <?php endif; ?>
 
-      <?php if ($btn_url): ?>
+      <?php if ($btn_label): ?>
         <p class="two-up-hero__cta">
-          <a class="btn-cta" href="<?php echo $btn_url; ?>" target="<?php echo $btn_target; ?>">
-            <span class="btn-cta__icon" aria-hidden="true">❤</span>
-            <span class="btn-cta__label"><?php echo esc_html($btn_label); ?></span>
-          </a>
+          <?php if ($popup_product_id): ?>
+            <a href="#"
+               class="btn-cta js-donate-popup"
+               data-project-id="<?php echo (int) $popup_product_id; ?>"
+               aria-haspopup="dialog"
+               aria-controls="continue_shopping_popup">
+              <span class="btn-cta__icon" aria-hidden="true">❤</span>
+              <span class="btn-cta__label"><?php echo esc_html($btn_label); ?></span>
+            </a>
+          <?php elseif ($btn_url): ?>
+            <a class="btn-cta" href="<?php echo $btn_url; ?>" target="<?php echo $btn_target; ?>">
+              <span class="btn-cta__icon" aria-hidden="true">❤</span>
+              <span class="btn-cta__label"><?php echo esc_html($btn_label); ?></span>
+            </a>
+          <?php endif; ?>
         </p>
       <?php endif; ?>
     </div>

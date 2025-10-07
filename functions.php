@@ -3,6 +3,7 @@
 add_action('enqueue_block_assets', function () {
     // adjust paths to your build output
     wp_enqueue_script('landing-hero', get_stylesheet_directory_uri().'/assets/js/landing-hero.js', ['jquery'], '1.0', true);
+    wp_enqueue_script('project-cards', get_stylesheet_directory_uri().'/assets/js/project-cards.js', ['jquery'], '1.0', true);
   });
   
 
@@ -265,5 +266,20 @@ function push_purchase_event_to_datalayer() {
 }
 //add_action('wp_footer', 'push_purchase_event_to_datalayer');
  
+// Prevent "Undefined array key 'value'" in woocommerce_form_field() on PHP 8+
+add_filter( 'woocommerce_form_field_args', function( $args, $key, $value ) {
+    // If 'value' is not explicitly set, fall back to $value (current field value) or empty string/default
+    if ( ! array_key_exists( 'value', $args ) ) {
+        if ( isset( $value ) && $value !== '' ) {
+            $args['value'] = $value;
+        } elseif ( isset( $args['default'] ) ) {
+            $args['value'] = $args['default'];
+        } else {
+            $args['value'] = '';
+        }
+    }
+    return $args;
+}, 10, 3 );
+
    
 ?>

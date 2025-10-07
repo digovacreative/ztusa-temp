@@ -50,6 +50,62 @@ function my_acf_init() {
             )
         );
 
+
+        acf_register_block_type(
+            array(
+                'name'				=> 'stats-carousel',
+                'title'				=> __('Stats Carousel'),
+                'description'		=> __('Stats Carousel Slider'),
+                'render_callback'	=> 'my_acf_block_render_callback',
+                'category'			=> 'formatting',
+                'mode'				=> 'edit',
+                'icon'				=> 'admin-comments',
+                'keywords'			=> array( 'stats-carousel' ),
+            )
+        );
+        
+
+        acf_register_block_type(
+            array(
+                'name'				=> 'image-content-box',
+                'title'				=> __('Image Content Box'),
+                'description'		=> __('Image Content Box Row'),
+                'render_callback'	=> 'my_acf_block_render_callback',
+                'category'			=> 'formatting',
+                'mode'				=> 'edit',
+                'icon'				=> 'admin-comments',
+                'keywords'			=> array( 'image-content' ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'				=> 'project-carousel',
+                'title'				=> __('Project Carousel'),
+                'description'		=> __('Featured Project Carousel'),
+                'render_callback'	=> 'my_acf_block_render_callback',
+                'category'			=> 'formatting',
+                'mode'				=> 'edit',
+                'icon'				=> 'admin-comments',
+                'keywords'			=> array( 'project-carousel' ),
+            )
+        );
+
+
+        acf_register_block_type(
+            array(
+                'name'				=> 'image-overlap',
+                'title'				=> __('Image Overlap Box'),
+                'description'		=> __('Image Overlap Content Box'),
+                'render_callback'	=> 'my_acf_block_render_callback',
+                'category'			=> 'formatting',
+                'mode'				=> 'edit',
+                'icon'				=> 'admin-comments',
+                'keywords'			=> array( 'image-overlap' ),
+            )
+        );
+
+
         acf_register_block_type(array(
             'name'            => 'project-cards-grid',
             'title'           => __('Project Cards Grid'),
@@ -133,60 +189,6 @@ function my_acf_init() {
                 'mode'  => false,        // hides the mode switcher UI; keep if you like
             ],
         ]);
-
-        acf_register_block_type(
-            array(
-                'name'				=> 'stats-carousel',
-                'title'				=> __('Stats Carousel'),
-                'description'		=> __('Stats Carousel Slider'),
-                'render_callback'	=> 'my_acf_block_render_callback',
-                'category'			=> 'formatting',
-                'mode'				=> 'edit',
-                'icon'				=> 'admin-comments',
-                'keywords'			=> array( 'stats-carousel' ),
-            )
-        );
-        
-
-        acf_register_block_type(
-            array(
-                'name'				=> 'image-content-box',
-                'title'				=> __('Image Content Box'),
-                'description'		=> __('Image Content Box Row'),
-                'render_callback'	=> 'my_acf_block_render_callback',
-                'category'			=> 'formatting',
-                'mode'				=> 'edit',
-                'icon'				=> 'admin-comments',
-                'keywords'			=> array( 'image-content' ),
-            )
-        );
-
-        acf_register_block_type(
-            array(
-                'name'				=> 'project-carousel',
-                'title'				=> __('Project Carousel'),
-                'description'		=> __('Featured Project Carousel'),
-                'render_callback'	=> 'my_acf_block_render_callback',
-                'category'			=> 'formatting',
-                'mode'				=> 'edit',
-                'icon'				=> 'admin-comments',
-                'keywords'			=> array( 'project-carousel' ),
-            )
-        );
-
-
-        acf_register_block_type(
-            array(
-                'name'				=> 'image-overlap',
-                'title'				=> __('Image Overlap Box'),
-                'description'		=> __('Image Overlap Content Box'),
-                'render_callback'	=> 'my_acf_block_render_callback',
-                'category'			=> 'formatting',
-                'mode'				=> 'edit',
-                'icon'				=> 'admin-comments',
-                'keywords'			=> array( 'image-overlap' ),
-            )
-        );
 
         acf_register_block_type([
             'name'            => 'donation-hero',

@@ -8,6 +8,10 @@ $cyan: #04A4CC;
 $white: #fff;
 $black: #000000;
 
+// Tokens
+$teal-1: #1c5151; // defaults only—overridden by ACF color pickers
+$teal-2: #0f8a8b;
+
 /// Breakpoints
 $breakpoint-small: 600px;
 $breakpoint-medium: 959px;  // ← your “max-width: 959px” breakpoint

@@ -26,7 +26,7 @@ $bg_m_id    = (int) (get_field('bg_image_mobile') ?: 0);
 $bg_url     = $bg_id   ? wp_get_attachment_image_url($bg_id,   'full') : '';
 $bg_m_url   = $bg_m_id ? wp_get_attachment_image_url($bg_m_id, 'full') : $bg_url;
 
-$bg_focal   = (string) (get_field('bg_focal') ?: 'center center');
+$bg_focal   = (string) (get_field('bg_focal') ?: 'right center');
 $overlay    = (string) (get_field('overlay_color') ?: 'rgba(0,0,0,.45)');
 
 $h_main     = trim((string) get_field('heading_main'))   ?: 'Every Child Deserves a Chance to';
@@ -37,10 +37,10 @@ $min_h      = (int) (get_field('min_height') ?: 560);
 $content_w  = (int) (get_field('content_width') ?: 560);
 $align      = (string) (get_field('content_align') ?: 'left');
 
-$btn        = get_field('mobile_button'); // ACF link (array)
-$btn_url    = (is_array($btn) && !empty($btn['url']))   ? esc_url($btn['url'])   : '';
-$btn_label  = (is_array($btn) && ($btn['title'] ?? '') !== '' ) ? $btn['title']  : 'Donate and Support';
-$btn_target = (is_array($btn) && !empty($btn['target'])) ? esc_attr($btn['target']) : '_self';
+$btn        = (array) (get_field('mobile_button') ?: []);
+$btn_url    = isset($btn['url'])    ? esc_url($btn['url']) : '';
+$btn_title  = isset($btn['title'])  && $btn['title'] !== '' ? $btn['title'] : 'Donate';
+$btn_target = !empty($btn['target']) ? esc_attr($btn['target']) : '_self';
 
 /** Inline CSS variables (desktop + mobile bg) */
 $vars = sprintf(
@@ -63,7 +63,7 @@ $vars = sprintf(
         <span class="accent"><?php echo esc_html($h_accent); ?></span>
       </h1>
 
-      <!-- Fundraise Up inline trigger (hidden element; FRU script replaces it) -->
+      <!-- Fundraise Up inline trigger (FRU script hooks into this anchor) -->
       <div class="donation-hero__box">
         <a href="#<?php echo esc_attr($widget_id); ?>" style="display:none"></a>
         <?php if (is_user_logged_in() && current_user_can('edit_posts')): ?>
@@ -75,7 +75,7 @@ $vars = sprintf(
     <?php if ($btn_url): ?>
       <p class="donation-hero__mobile-cta">
         <a class="dh-btn" href="<?php echo $btn_url; ?>" target="<?php echo $btn_target; ?>">
-          <?php echo esc_html($btn_label); ?>
+          <?php echo esc_html($btn_title); ?>
         </a>
       </p>
     <?php endif; ?>

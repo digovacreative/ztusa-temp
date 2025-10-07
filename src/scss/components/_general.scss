@@ -10708,13 +10708,13 @@ screen and (max-width:736px) and (orientation:landscape) {
 	color: vars.$bg-grey !important
 }
 
-.gutenberg__wrap .donation_box_page.medium_box .cart_sidebar.disabled .woo_checkout_button {
-	pointer-events: none;
-	cursor: default;
-	color: #cfcfd4;
-	border: 3px #cfcfd4 solid;
-	padding: 15px 25px
-}
+// .gutenberg__wrap .donation_box_page.medium_box .cart_sidebar.disabled .woo_checkout_button {
+// 	pointer-events: none;
+// 	cursor: default;
+// 	color: #cfcfd4;
+// 	border: 3px #cfcfd4 solid;
+// 	padding: 15px 25px
+// }
 
 .gutenberg__wrap .donation_box_page #checkout_page {
 	padding: 10px;
