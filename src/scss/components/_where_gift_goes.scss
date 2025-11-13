@@ -1,0 +1,90 @@
+/* ===== Where Your Gift Goes – 2-row layout per card ===== */
+.gift-goes {
+
+  padding: 3rem 0;
+
+  /* container + heading (keep what you like from earlier) */
+  .gift-goes__inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .gift-goes__heading { text-align:center; font-weight:900; margin:0 0 20px; .is-accent{color:var(--accent);} }
+
+  /* GRID of cards (unchanged) */
+  .gift-goes__grid {
+    display: grid; gap: 18px; grid-template-columns: 1fr;
+    @media (min-width: 600px){ grid-template-columns: 1fr 1fr; }
+  }
+
+  /* === CARD === */
+  .gift-goes__card{
+    background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    /* ROW 1: title full width
+       ROW 2: 50/50 → list+cta on left, map on right */
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "list  map"
+      "cta   map";
+    column-gap: 24px; row-gap: 12px;
+
+    // @media (max-width:599px){
+    //   grid-template-columns: 1fr;
+    //   grid-template-areas:
+    //     "title"
+    //     "map"
+    //     "list"
+    //     "cta";
+    // }
+  }
+
+  /* let header’s children (title + map) participate directly */
+  .gift-goes__card-head{ display: contents; }
+
+  /* Title = first row, full width */
+  .gift-goes__title{
+    grid-area: title;
+    margin:0; font-size:20px; font-weight:800; line-height:1.2; color:#11151a;
+  }
+
+  /* Map = right column */
+  .gift-goes__mapwrap{
+    grid-area: map;
+    justify-self: end; align-self: start;
+    width: clamp(120px, 26vw, 180px);
+    height: clamp(96px, 20vw, 140px);
+    border-radius:8px; overflow:hidden;
+
+    img{width:100%;height:100%;object-fit:contain;display:block;}
+  }
+
+  /* Locations = left column */
+  .gift-goes__list{
+    grid-area: list;
+    margin: 4px 0 10px 18px; padding:0;
+    li{ font-size:18px; line-height:1.35; margin:0 0 6px; color:#11151a; }
+  }
+
+  /* CTA = left column under the list */
+  .gift-goes__cta{ grid-area: cta; margin-top: 4px; }
+
+  /* Button (reuse your palette) */
+  .btn-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 16px; border-radius:10px; background:var(--accent);
+    color:#fff; text-decoration:none; font-weight:700;
+    box-shadow:0 2px 0 rgba(0,0,0,.1), 0 8px 16px rgba(0,0,0,.12);
+    transition:transform .1s ease, filter .2s ease;
+    &:hover{ filter:brightness(1.05); }
+    &:active{ transform:translateY(1px); }
+    &__icon{ font-size:18px; line-height:1; transform:translateY(-1px); }
+    &__label{ font-size:16px; line-height:1; }
+  }
+
+  /* Bottom background image (keep yours) */
+  .gift-goes__bg{
+    position:absolute; inset-inline:0; bottom:-8px; height:min(320px,45vw);
+    background-image:var(--bg-bottom); background-size:contain; background-position:bottom center;
+    background-repeat:no-repeat; pointer-events:none; z-index:0;
+    @media (max-width:767.98px){ background-image:var(--bg-bottom-m,var(--bg-bottom)); height:min(260px,60vw); }
+  }
+}

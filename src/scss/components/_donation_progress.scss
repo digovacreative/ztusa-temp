@@ -1,0 +1,97 @@
+/* Donation Progress */
+.donation-progress {
+
+  padding: 2rem 0;
+ 
+
+  --bar: #0a61ff;
+  --track: #fff;
+  --track-border: #0a61ff;
+  --accent: #c13b5a;
+
+  .donation-progress__inner {
+    max-width: 1200px;
+    margin: 0 auto !important;
+ 
+    padding: 8px 16px 20px;
+  }
+
+  .donation-progress__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    .donation-progress__raised{
+      font-weight: 800 !important;
+    }
+    .donation-progress__goal {
+      font-weight: normal !important;
+
+    }
+
+    .donation-progress__raised,
+    .donation-progress__goal {
+
+      font-size: clamp(16px, 2.5vw, 26px);
+      line-height: 1.1;
+      color: #111;
+    }
+  }
+
+  .donation-progress__barwrap {
+    margin: 8px 0 18px;
+  }
+
+  .donation-progress__bar {
+    position: relative;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--track);
+    border: 2px solid var(--track-border);
+    overflow: hidden;
+  }
+
+  .donation-progress__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: var(--bar);
+    border-radius: 10px 0 0 10px;
+    transition: width .6s ease;
+  }
+
+  .donation-progress__label {
+ 
+     font-weight: 700;
+    padding: 6px 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    // border: 1px solid var(--track-border);
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .donation-progress__cta {
+    text-align: center;
+    margin: 12px 0 0;
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 2px 0 rgba(0,0,0,.12), 0 8px 18px rgba(0,0,0,.12);
+      transition: transform .1s ease, filter .2s ease;
+      &:hover { filter: brightness(1.05); }
+      &:active { transform: translateY(1px); }
+    }
+  }
+}

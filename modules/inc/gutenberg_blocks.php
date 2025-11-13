@@ -213,6 +213,38 @@ function my_acf_init() {
             'keywords'        => array('fundraise','fundraiseup','supporters','donors'),
           ));
 
+          acf_register_block_type([
+          'name'              => 'block-where-gift-goes',                            // used in templates: acf/where-gift-goes
+          'title'             => __('Where Your Gift Goes', 'your-textdomain'),
+          'description'       => __('Grid of country cards with cities and a Donate button, plus a bottom-anchored background image.'),
+          'render_callback' => 'my_acf_block_render_callback',
+          'category'          => 'widgets',
+          'icon'              => 'location-alt',                               // dashicons
+          'mode'              => 'preview',                                    // preview by default in editor
+          'keywords'          => ['donate','countries','impact','locations','map'],
+        ]);
+        acf_register_block_type([
+            'name'            => 'fru-split-cta',
+            'title'           => __('FundraiseUp Split CTA', 'yourtextdomain'),
+            'description'     => __('Left: FundraiseUp widget. Right: headline + body.', 'yourtextdomain'),
+            'category'        => 'widgets',
+            'icon'            => 'heart',
+            'keywords'        => ['fundraise', 'fundraiseup', 'donate', 'cta'],
+            'mode'              => 'preview',                                    // preview by default in editor
+            'render_callback' => 'my_acf_block_render_callback',
+        ]);
+
+        acf_register_block_type([
+            'name'            => 'donation-progress',
+            'title'           => __('Donation Progress', 'theme'),
+            'description'     => __('Raised/Goal with progress bar + CTA button.', 'theme'),
+            'category'        => 'widgets',
+            'icon'            => 'chart-bar',
+            'mode'            => 'preview',
+            'render_callback' => 'my_acf_block_render_callback',
+            'keywords'        => ['donation','progress','fundraise','bar'],
+          ]);
+          
          acf_register_block_type([
             'name'            => 'impact-map-cta',
             'title'           => __('Impact Map + CTA'),

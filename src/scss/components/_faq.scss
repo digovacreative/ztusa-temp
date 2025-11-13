@@ -19,15 +19,15 @@
   
   // ── Accordion ──────────────────────────────────────────
   .faq_content_box {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
     margin-bottom: 6rem !important;
-    padding: 0 2rem;
+    padding: 0 2rem !important;
   
     h2 {
       font-size: vars.$font-size-h2 !important;
       text-align: center;
-      margin-bottom: vars.$spacer;
+      margin-bottom: vars.$spacer * 3 !important;
     }
   
     margin-top: vars.$spacer * 2 !important;
@@ -43,7 +43,10 @@
   
     .accordion-toggle {
       display: block;
-      font-size: 20px !important;
+      font-size: 16px !important;
+      @media (min-width: 769px) {
+        font-size: 20px !important;
+      }
       background-color: transparent !important;
       width: 100%;
       border: none;

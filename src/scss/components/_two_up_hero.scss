@@ -185,8 +185,6 @@
   }
 
   // Force mobile order: media first, content second
-  &__media   { order: 1; }
-  &__content { order: 0; }
 
   // Optional: nice spacing on mobile
   &__media   { margin-bottom: 16px; }
@@ -205,4 +203,87 @@
     // Desktop spacing
     &__media   { margin-bottom: 0; }
   }
+  &__media   { order: 1; }
+  &__content { order: 0; }
+
+}
+
+/* keep your mobile stack as-is */
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  .two-up-hero .two-up-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  /* Default: image left */
+  .two-up-hero--img-left  .two-up-hero__media   { grid-column: 1; }
+  .two-up-hero--img-left  .two-up-hero__content { grid-column: 2; }
+
+  /* Image right */
+  .two-up-hero--img-right .two-up-hero__media   { grid-column: 2; }
+  .two-up-hero--img-right .two-up-hero__content { grid-column: 1; }
+}
+
+/* Delete these (they conflict):
+   - the later .two-up-hero__grid { display: flex; ... }
+   - the order: initial on desktop
+   - the direction: rtl trick
+*/
+/* Desktop layout */
+@media (min-width: 900px) {
+  .two-up-hero .two-up-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: start;        /* <-- top-align the two columns */
+  }
+
+  /* Also force each item to top-align just in case */
+  .two-up-hero__media,
+  .two-up-hero__content {
+    align-self: center;         /* <-- ensures no item stays centered */
+  }
+
+  /* Image on left/right control */
+  .two-up-hero--img-left  .two-up-hero__media   { grid-column: 1; }
+  .two-up-hero--img-left  .two-up-hero__content { grid-column: 2; }
+  .two-up-hero--img-right .two-up-hero__media   { grid-column: 2; }
+  .two-up-hero--img-right .two-up-hero__content { grid-column: 1; }
+}
+.two-up-hero {
+  position: relative;
+  overflow: hidden;
+
+  /* Put content above background */
+  &__grid { position: relative; z-index: 2; }
+
+  /* Background image (desktop) */
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: var(--bg-pos, center);
+    z-index: 0;
+  }
+
+  /* Use mobile bg when set */
+  @media (max-width: 899.98px) {
+    &__bg { background-image: var(--bg-m, var(--bg)); }
+  }
+
+  /* When bg is present, kill any old background and rely on --text for color */
+  &.has-bg { background: none; }
+
+  /* Make sure text respects --text (already set inline to #fff when has-bg) */
+  color: var(--text);
+
+  .two-up-hero__heading,
+  .two-up-hero__body,
+  .two-up-hero__body p { color: var(--text); }
 }

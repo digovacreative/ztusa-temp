@@ -231,7 +231,7 @@ function load_project_function(){
                                                         <span class="inactive"></span> 
                                                         <strong>
                                                             <small>You Decide</small>    
-                                                            <input required type="number" min="1" step="1"  class="recurring_donation your_price_recurring_<?php echo $product_id; ?>" value="<?php $counterRecurring=0; while(has_sub_field('product_options')): if(get_sub_field('recurring_amount')): $counterRecurring++; if($counterRecurring===1){ the_sub_field('recurring_amount'); } endif; endwhile; ?>"/>
+                                                            <input required type="number" min="1" step="1" inputmode="decimal" class="recurring_donation your_price_recurring_<?php echo $product_id; ?>" value="<?php $counterRecurring=0; while(has_sub_field('product_options')): if(get_sub_field('recurring_amount')): $counterRecurring++; if($counterRecurring===1){ the_sub_field('recurring_amount'); } endif; endwhile; ?>"/>
                                                         </strong>
                                                     </li>
 

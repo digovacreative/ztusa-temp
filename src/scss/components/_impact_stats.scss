@@ -40,6 +40,7 @@
     }
   
     &__grid {
+      padding-left: 0 !important;
       margin-top: clamp(20px, 4vw, 40px);
       display: grid;
       gap: clamp(16px, 3vw, 28px);
@@ -63,12 +64,12 @@
     &__item {
       list-style: none;
       position: relative;
-      padding: clamp(10px, 2vw, 14px) clamp(8px, 2vw, 14px);
+      padding: clamp(10px, 2vw, 14px) clamp(8px, 2vw, 14px) !important;
   
       /* vertical dividers on desktop */
       @media (min-width: 900px) {
         &:not(:nth-child(3n+1)) {
-          border-left: 1px solid rgba(255, 255, 255, .35);
+          border-left: 1px solid rgba(255, 255, 255,1);
         }
       }
     }
@@ -82,7 +83,7 @@
     }
   
     &__value {
-      font-weight: 800;
+      font-weight: 700 !important;
       font-size: 50px !important;
       letter-spacing: .5px;
       color: #fff !important;
@@ -98,9 +99,12 @@
       }
   
       .l1 {
+        font-size: 16px !important;
         font-weight: 600;
         opacity: .95;
         color: #fff !important;
+        font-size: 16px !important;
+        padding-bottom: 1rem !important;
       } 
   
       .l2 {
@@ -188,6 +192,38 @@
   @media (max-width: 767.98px) {
     &.has-image .impact-stats__bg {
       background-image: var(--bg-mobile, var(--bg));
+    }
+  }
+}
+
+
+/* Center the LAST orphan item on the final row */
+@media (min-width: 900px) {
+  .impact-stats__grid {
+    /* 2 columns: odd total → last item spans full row & centers */
+    &.impact-stats__grid--cols-2
+    > .impact-stats__item:last-child:nth-child(2n + 1) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      text-align: center;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    /* 3 columns: total count ≡ 1 (mod 3) → put last item in middle column */
+    &.impact-stats__grid--cols-3
+    > .impact-stats__item:last-child:nth-child(3n + 1) {
+      grid-column: 2;               /* middle column */
+      justify-self: center;
+      text-align: center;
+    }
+
+    /* 4 columns: total count ≡ 1 (mod 4) → span the two center columns */
+    &.impact-stats__grid--cols-4
+    > .impact-stats__item:last-child:nth-child(4n + 1) {
+      grid-column: 2 / span 2;      /* center span */
+      justify-self: center;
+      text-align: center;
     }
   }
 }

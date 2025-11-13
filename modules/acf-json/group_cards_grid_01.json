@@ -23,14 +23,43 @@
             "append": ""
         },
         {
+            "key": "field_6903ff67d39ba",
+            "label": "Hide All Buttons",
+            "name": "hide_all_buttons",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Hide All",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_cg_default_button",
             "label": "Default Button Label",
             "name": "default_button_label",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6903ff67d39ba",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -38,6 +67,7 @@
             },
             "default_value": "Select Package",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -305,8 +335,23 @@
                     "aria-label": "",
                     "type": "text",
                     "instructions": "Optional – overrides default label for this card.",
-                    "required": false,
-                    "conditional_logic": false,
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6903ff88d39bb",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_6903ff67d39ba",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -314,9 +359,32 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
+                    "parent_repeater": "field_cg_cards"
+                },
+                {
+                    "key": "field_6903ff88d39bb",
+                    "label": "Hide Button",
+                    "name": "hide_button",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Hide",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
                     "parent_repeater": "field_cg_cards"
                 }
             ]
@@ -340,5 +408,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759700063
+    "display_title": "",
+    "modified": 1761869787
 }

@@ -31,10 +31,11 @@ if (!function_exists('get_field') || !function_exists('have_rows')) {
   return;
 }
 
-$block_id    = 'cards-grid-' . (function_exists('wp_unique_id') ? wp_unique_id() : uniqid('', true));
-$section_h   = get_field('section_title');
-$default_cta = get_field('default_button_label') ?: 'Select Package';
-$cards       = get_field('cards');
+$block_id       = 'cards-grid-' . (function_exists('wp_unique_id') ? wp_unique_id() : uniqid('', true));
+$section_h      = get_field('section_title');
+$default_cta    = get_field('default_button_label') ?: 'Select Package';
+$cards          = get_field('cards');
+$hide_all_ctas  = (bool) get_field('hide_all_buttons'); // <<< BLOCK-LEVEL TOGGLE
 
 if (!$cards || !is_array($cards)) { if (is_admin()) echo '<p><em>Add some cards.</em></p>'; return; }
 ?>
@@ -53,6 +54,9 @@ if ( have_rows('cards') ):
     $acf_product  = (int) get_sub_field('product');
     $acf_link     = (array) get_sub_field('link');
     $acf_projects = (array) get_sub_field('donation_projects');
+
+    // Row-level toggle — coerce strictly (handles "", "0", 0, null, false)
+    $hide_row_cta = filter_var(get_sub_field('hide_button'), FILTER_VALIDATE_BOOLEAN);
 
     $page_projects = (array) get_field('donation_projects', get_the_ID());
     $page_fallback = !empty($page_projects[0]) ? (int) $page_projects[0] : 0;
@@ -113,34 +117,52 @@ if ( have_rows('cards') ):
     }
 
     if (!$popup_product_id && $card_product_id) $popup_product_id = $card_product_id;
-    $cta_label = get_sub_field('button_label') ?: ($default_cta ?? 'Select Package');
 
-    echo "\n<!-- card {$idx}: type={$type}" . ($note ? " ({$note})" : "") . " | popup_product_id={$popup_product_id} -->\n";
-    ?>
+    // Decide if CTA should render at all
+    $show_cta = (!$hide_all_ctas && !$hide_row_cta);
+
+    // Compute label ONLY if we will show the CTA
+    $cta_label = '';
+    if ($show_cta) {
+      $lbl = (string) get_sub_field('button_label');
+      $cta_label = ($lbl !== '') ? $lbl : ($default_cta ?? 'Select Package');
+    }
+
+    $is_popup = (bool) $popup_product_id;
+
+    // Wrapper: button-like <div> for popup vs <a> for normal links
+    $wrapper_tag   = $is_popup ? 'div' : 'a';
+    $wrapper_attrs = $is_popup
+      ? 'class="project-card__link has-popup" role="button" tabindex="0" data-project-id="' . (int)$popup_product_id . '"'
+      : 'class="project-card__link" href="' . esc_url($href) . '" target="' . esc_attr($target) . '"';
+  ?>
     <li class="project-card">
-      <a class="project-card__link<?php echo $popup_product_id ? ' has-popup' : ''; ?>"
-         href="<?php echo esc_url($href); ?>"
-         target="<?php echo esc_attr($target); ?>"
-         <?php if ($popup_product_id): ?>data-project-id="<?php echo (int) $popup_product_id; ?>"<?php endif; ?>>
+      <<?= $wrapper_tag ?> <?= $wrapper_attrs ?>>
         <div class="project-card__media">
-          <?php if ($image_url): ?><img src="<?php echo esc_url($image_url); ?>" alt="" loading="lazy" /><?php endif; ?>
-          <?php if ($icon_url): ?><span class="project-card__icon"><img src="<?php echo esc_url($icon_url); ?>" alt="" loading="lazy" /></span><?php endif; ?>
+          <?php if ($image_url): ?>
+            <img src="<?= esc_url($image_url) ?>" alt="<?= esc_attr($title ?: ''); ?>" loading="lazy" />
+          <?php endif; ?>
+          <?php if ($icon_url): ?>
+            <span class="project-card__icon"><img src="<?= esc_url($icon_url) ?>" alt="" loading="lazy" /></span>
+          <?php endif; ?>
         </div>
+
         <div class="project-card__body">
-          <h3 class="project-card__title"><?php echo esc_html($title ?: 'Untitled'); ?></h3>
-          <?php if ($cta_label): ?>
-            <?php if ($popup_product_id): ?>
-              <button type="button" class="project-card__cta js-donate-popup"
-                data-project-id="<?php echo (int) $popup_product_id; ?>"
-                aria-haspopup="dialog" aria-controls="product_details_box">
-                <?php echo esc_html($cta_label); ?>
-              </button>
+          <h3 class="project-card__title"><?= esc_html($title ?: 'Untitled'); ?></h3>
+
+          <?php if ($show_cta && $cta_label !== ''): ?>
+            <?php if ($is_popup): ?>
+              <span class="project-card__cta js-donate-popup"
+                    role="button" tabindex="0"
+                    data-project-id="<?= (int)$popup_product_id; ?>">
+                <?= esc_html($cta_label); ?>
+              </span>
             <?php else: ?>
-              <span class="project-card__cta" aria-disabled="true"><?php echo esc_html($cta_label); ?></span>
+              <span class="project-card__cta"><?= esc_html($cta_label); ?></span>
             <?php endif; ?>
           <?php endif; ?>
         </div>
-      </a>
+      </<?= $wrapper_tag ?>>
     </li>
   <?php endwhile; ?>
 <?php else: ?>
@@ -151,30 +173,32 @@ if ( have_rows('cards') ):
 
 <script>
 (function($){
-  if (typeof window.$ajaxurl === 'undefined' || !window.$ajaxurl) {
-    window.$ajaxurl = "<?php echo esc_url( admin_url('admin-ajax.php') ); ?>";
-  }
-
-  // Trigger via button
-  $(document).on('click', '.js-donate-popup', function(e){
-    e.preventDefault();
-    var pid = parseInt($(this).data('project-id'), 10);
+  function openPopup(pid){
     if (pid && typeof load_the_project === 'function') {
       $('body').addClass('popup_active');
       load_the_project(pid);
     }
+  }
+
+  // Inline CTA
+  $(document).on('click', '.js-donate-popup', function(e){
+    e.preventDefault();
+    openPopup(parseInt($(this).data('project-id'), 10));
   });
 
-  // Trigger via whole card
+  $(document).on('keydown', '.js-donate-popup', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $(this).click(); }
+  });
+
+  // Whole card as trigger
   $(document).on('click', '.project-card__link.has-popup', function(e){
     if ($(e.target).closest('.js-donate-popup').length) return;
     e.preventDefault();
-    var pid = parseInt($(this).data('project-id'), 10);
-    if (pid && typeof load_the_project === 'function') {
-      $('body').addClass('popup_active');
-      load_the_project(pid);
-    }
+    openPopup(parseInt($(this).data('project-id'), 10));
+  });
+
+  $(document).on('keydown', '.project-card__link.has-popup', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $(this).click(); }
   });
 })(jQuery);
-   
 </script>

@@ -60,7 +60,7 @@ global $location_block;
 
 </style>
 <div class="gutenberg__wrap">
-	<section class="homepage__slider_carousel medium <?php the_field('banner_style'); ?>">
+	<section class="homepage__slider_carousel content-homepage-slider medium <?php the_field('banner_style'); ?>">
 
 		<div class="main__carousel" id="carousel__main_scroller">
 		<?php while(has_sub_field('banner_items')): ?>

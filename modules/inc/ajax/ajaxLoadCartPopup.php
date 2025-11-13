@@ -52,8 +52,6 @@ function load_cart_function(){  ?>
             cart_quantity();
             jQuery('.continue_shopping_popup').removeClass('active');
             jQuery('body').removeClass('popup_active');
-            jQuery('body').removeClass('added_to_cart');
-            console.log('closed');
             event.preventDefault();
         });
         jQuery('body').addClass('popup_active');
@@ -65,8 +63,8 @@ function load_cart_function(){  ?>
         function load_the_recurring_cart_data($method = false, $id = false){
             jQuery.ajax({
                 // url:  $ajaxurl,
-                url:  '<?php echo get_stylesheet_directory_uri(); ?>/modules/inc/ajax/ajaxRecurringCart.php',
-                data: 'action=load_recurring_cart&method='+$method+'&id='+$id+'&url=<?php  echo get_stylesheet_directory_uri(); ?>',
+                url:  '<?php echo get_template_directory_uri(); ?>/modules/inc/ajax/ajaxRecurringCart.php',
+                data: 'action=load_recurring_cart&method='+$method+'&id='+$id+'&url=<?php  echo get_template_directory_uri(); ?>',
                 type: 'POST',
                 beforeSend:function(xhr){
                     jQuery('.recurring_cart').addClass('loading');

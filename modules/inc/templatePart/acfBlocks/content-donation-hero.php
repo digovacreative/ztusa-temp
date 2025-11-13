@@ -12,8 +12,7 @@ if (defined('REST_REQUEST') && REST_REQUEST && is_admin()) {
   ?>
   <section class="donation-hero donation-hero--preview" style="padding:16px;border:1px dashed #ccd;">
     <h3 style="margin:0 0 .5rem;"><?php echo esc_html("$h_main "); ?><span style="color:#c21f4f;"><?php echo esc_html($h_accent); ?></span></h3>
-    <p style="margin:0;opacity:.8"><em>Fundraise Up widget (ID: <?php echo esc_html($wid); ?>) will render on the front-end.</em></p>
-  </section>
+   </section>
   <?php
   return;
 }
@@ -66,9 +65,6 @@ $vars = sprintf(
       <!-- Fundraise Up inline trigger (FRU script hooks into this anchor) -->
       <div class="donation-hero__box">
         <a href="#<?php echo esc_attr($widget_id); ?>" style="display:none"></a>
-        <?php if (is_user_logged_in() && current_user_can('edit_posts')): ?>
-          <p style="margin-top:.5rem;opacity:.8"><em>Preview: the Fundraise Up form renders on the public page.</em></p>
-        <?php endif; ?>
       </div>
     </div>
 

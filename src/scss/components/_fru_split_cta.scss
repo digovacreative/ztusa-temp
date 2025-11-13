@@ -1,0 +1,64 @@
+.fru-split-cta{
+  --accent:#c13b5a;
+  --bg:#fff;
+  --pad:24px;
+  --radius:14px;
+
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: var(--pad);
+
+  .fru-split-cta__grid{
+    display:grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Desktop */
+  @media (min-width: 900px){
+    .fru-split-cta__grid{ grid-template-columns: 1fr 1fr; gap: 44px; }
+  }
+
+  /* LEFT */
+  .fru-split-cta__widget{ align-self: start; }
+  .fru-split-cta__card{
+    background:#fff;
+    border-radius: 14px;
+    min-height: 420px; /* FRU will auto-resize its iframe; this prevents layout shift */
+  }
+  &.has-shadow .fru-split-cta__card{
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  }
+
+  .fru-split-cta__payments{
+    margin: 14px 0 0;
+    img{ display:block; max-width: 100%; height:auto;}
+  }
+
+  /* RIGHT */
+  .fru-split-cta__heading{
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    color: #0b0d0f;
+  }
+
+  .fru-split-cta__p{
+    font-size: clamp(18px, 2.2vw, 28px);
+    line-height: 1.25;
+    margin: 0 0 14px;
+    color: #0b0d0f;
+
+    &--accent{
+      color: var(--accent);
+      font-weight: 800;
+    }
+  }
+}
+.fru-split{
+  padding: 3rem 0;
+}

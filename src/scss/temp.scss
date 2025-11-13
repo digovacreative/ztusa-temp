@@ -1,7 +1,13 @@
 // 1) Variables & tools
 @use 'abstracts/variables' as vars;
 
+@use 'components/donation_box';
+@use 'components/general';
+@use 'components/gutenberg';
+@use 'components/ui_helper';
+@use 'components/donation_progress';
 @use 'components/faq';
+@use 'components/fru_split_cta';
 @use 'components/legacy_call_out';
 @use 'components/project_pills';
 @use 'components/project_cards';
@@ -11,4 +17,5 @@
 @use 'components/top_supporters';
 @use 'components/donation_hero';
 @use 'components/landing_hero';
+@use 'components/where_gift_goes';
 @use 'components/misc';
